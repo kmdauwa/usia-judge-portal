@@ -1,0 +1,541 @@
+{
+  "id": "5c82c45e-9040-40be-951f-f7e477b53d43",
+  "prevId": "d9c0141f-ecb2-427f-9f0c-54f39bd18a41",
+  "version": "5",
+  "dialect": "pg",
+  "tables": {
+    "Age_Category": {
+      "name": "Age_Category",
+      "schema": "",
+      "columns": {
+        "age_category_id": {
+          "name": "age_category_id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "age_category_name": {
+          "name": "age_category_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "Entries": {
+      "name": "Entries",
+      "schema": "",
+      "columns": {
+        "entry_id": {
+          "name": "entry_id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "participant_id": {
+          "name": "participant_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "region_id": {
+          "name": "region_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "major_category_id": {
+          "name": "major_category_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "group_class_id": {
+          "name": "group_class_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "age_category_id": {
+          "name": "age_category_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sub_category_id": {
+          "name": "sub_category_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "times_judged": {
+          "name": "times_judged",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "total_score": {
+          "name": "total_score",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "average_score": {
+          "name": "average_score",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "Entries_region_id_Regions_region_id_fk": {
+          "name": "Entries_region_id_Regions_region_id_fk",
+          "tableFrom": "Entries",
+          "tableTo": "Regions",
+          "columnsFrom": [
+            "region_id"
+          ],
+          "columnsTo": [
+            "region_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "Entries_major_category_id_Major_Category_major_category_id_fk": {
+          "name": "Entries_major_category_id_Major_Category_major_category_id_fk",
+          "tableFrom": "Entries",
+          "tableTo": "Major_Category",
+          "columnsFrom": [
+            "major_category_id"
+          ],
+          "columnsTo": [
+            "major_category_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "Entries_group_class_id_Group_Classes_group_class_id_fk": {
+          "name": "Entries_group_class_id_Group_Classes_group_class_id_fk",
+          "tableFrom": "Entries",
+          "tableTo": "Group_Classes",
+          "columnsFrom": [
+            "group_class_id"
+          ],
+          "columnsTo": [
+            "group_class_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "Entries_age_category_id_Age_Category_age_category_id_fk": {
+          "name": "Entries_age_category_id_Age_Category_age_category_id_fk",
+          "tableFrom": "Entries",
+          "tableTo": "Age_Category",
+          "columnsFrom": [
+            "age_category_id"
+          ],
+          "columnsTo": [
+            "age_category_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "Entries_sub_category_id_Sub_Category_sub_category_id_fk": {
+          "name": "Entries_sub_category_id_Sub_Category_sub_category_id_fk",
+          "tableFrom": "Entries",
+          "tableTo": "Sub_Category",
+          "columnsFrom": [
+            "sub_category_id"
+          ],
+          "columnsTo": [
+            "sub_category_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "Group_Classes": {
+      "name": "Group_Classes",
+      "schema": "",
+      "columns": {
+        "group_class_id": {
+          "name": "group_class_id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "group_class_name": {
+          "name": "group_class_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "Judges": {
+      "name": "Judges",
+      "schema": "",
+      "columns": {
+        "judges_id": {
+          "name": "judges_id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "judge_name": {
+          "name": "judge_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "major_category_id": {
+          "name": "major_category_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sub_category_id": {
+          "name": "sub_category_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "Judges_major_category_id_Major_Category_major_category_id_fk": {
+          "name": "Judges_major_category_id_Major_Category_major_category_id_fk",
+          "tableFrom": "Judges",
+          "tableTo": "Major_Category",
+          "columnsFrom": [
+            "major_category_id"
+          ],
+          "columnsTo": [
+            "major_category_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "Judges_sub_category_id_Sub_Category_sub_category_id_fk": {
+          "name": "Judges_sub_category_id_Sub_Category_sub_category_id_fk",
+          "tableFrom": "Judges",
+          "tableTo": "Sub_Category",
+          "columnsFrom": [
+            "sub_category_id"
+          ],
+          "columnsTo": [
+            "sub_category_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "Major_Category": {
+      "name": "Major_Category",
+      "schema": "",
+      "columns": {
+        "major_category_id": {
+          "name": "major_category_id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "major_category_name": {
+          "name": "major_category_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "Participants": {
+      "name": "Participants",
+      "schema": "",
+      "columns": {
+        "participant_id": {
+          "name": "participant_id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "first_name": {
+          "name": "first_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "last_name": {
+          "name": "last_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "region_id": {
+          "name": "region_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "jk_name": {
+          "name": "jk_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "Participants_region_id_Regions_region_id_fk": {
+          "name": "Participants_region_id_Regions_region_id_fk",
+          "tableFrom": "Participants",
+          "tableTo": "Regions",
+          "columnsFrom": [
+            "region_id"
+          ],
+          "columnsTo": [
+            "region_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "Regions": {
+      "name": "Regions",
+      "schema": "",
+      "columns": {
+        "region_id": {
+          "name": "region_id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "region_name": {
+          "name": "region_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "Scores": {
+      "name": "Scores",
+      "schema": "",
+      "columns": {
+        "score_id": {
+          "name": "score_id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "entry_id": {
+          "name": "entry_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "major_category_id": {
+          "name": "major_category_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "judge_id": {
+          "name": "judge_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "score": {
+          "name": "score",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "Scores_entry_id_Entries_entry_id_fk": {
+          "name": "Scores_entry_id_Entries_entry_id_fk",
+          "tableFrom": "Scores",
+          "tableTo": "Entries",
+          "columnsFrom": [
+            "entry_id"
+          ],
+          "columnsTo": [
+            "entry_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "Scores_major_category_id_Major_Category_major_category_id_fk": {
+          "name": "Scores_major_category_id_Major_Category_major_category_id_fk",
+          "tableFrom": "Scores",
+          "tableTo": "Major_Category",
+          "columnsFrom": [
+            "major_category_id"
+          ],
+          "columnsTo": [
+            "major_category_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "Scores_judge_id_Judges_judges_id_fk": {
+          "name": "Scores_judge_id_Judges_judges_id_fk",
+          "tableFrom": "Scores",
+          "tableTo": "Judges",
+          "columnsFrom": [
+            "judge_id"
+          ],
+          "columnsTo": [
+            "judges_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "Sub_Category": {
+      "name": "Sub_Category",
+      "schema": "",
+      "columns": {
+        "sub_category_id": {
+          "name": "sub_category_id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "sub_category_name": {
+          "name": "sub_category_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "User_Type": {
+      "name": "User_Type",
+      "schema": "",
+      "columns": {
+        "user_type_id": {
+          "name": "user_type_id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "user_type_name": {
+          "name": "user_type_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "Users": {
+      "name": "Users",
+      "schema": "",
+      "columns": {
+        "userid": {
+          "name": "userid",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "username": {
+          "name": "username",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "user_type_id": {
+          "name": "user_type_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "Users_user_type_id_User_Type_user_type_id_fk": {
+          "name": "Users_user_type_id_User_Type_user_type_id_fk",
+          "tableFrom": "Users",
+          "tableTo": "User_Type",
+          "columnsFrom": [
+            "user_type_id"
+          ],
+          "columnsTo": [
+            "user_type_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {
+      "\"Entries\".\"entries_id\"": "\"Entries\".\"entry_id\""
+    }
+  }
+}
