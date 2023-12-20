@@ -18,7 +18,7 @@ import React, { useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-//import Logo from '../../../../public/cypresslogo.svg';
+import Logo from '../../../../public/gef2024logo.png';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { MailCheck } from 'lucide-react';
 import { FormSchema } from '@/lib/types';
@@ -96,18 +96,19 @@ const Signup = () => {
           className="
           w-full
           flex
+          flex-col
           justify-left
           items-center"
         >
           <Image
-            src={"logo.svg"}
+            src={Logo}
             alt="cypress Logo"
-            width={50}
-            height={50}
+            width={150}
+            height={150}
           />
           <span
             className="font-semibold
-          dark:text-white text-4xl first-letter:ml-2"
+          dark:text-white text-4xl mt-4 mx-2"
           >
             USIA Judge Portal
           </span>
@@ -180,7 +181,7 @@ const Signup = () => {
         )}
 
         {submitError && <FormMessage>{submitError}</FormMessage>}
-        <span className="self-container">
+        <span className="text-center">
           Already have an account?{' '}
           <Link
             href="/login"

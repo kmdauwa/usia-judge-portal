@@ -15,7 +15,7 @@ import {
 } from '@/components/ui/form';
 import Link from 'next/link';
 import Image from 'next/image';
-//import Logo from '../../../../public/cypresslogo.svg';
+import Logo from '../../../../public/gef2024logo.png';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { actionLoginUser } from '@/lib/server-actions/auth-actions';
@@ -58,18 +58,19 @@ const LoginPage = () => {
           className="
           w-full
           flex
+          flex-col
           justify-left
           items-center"
         >
           <Image
-            src={"logo.svg"}
+            src={Logo}
             alt="cypress Logo"
-            width={50}
-            height={50}
+            width={150}
+            height={150}
           />
           <span
             className="font-semibold
-          dark:text-white text-4xl first-letter:ml-2"
+          dark:text-white text-4xl mt-4 mx-2"
           >
             USIA Judge Portal
           </span>
@@ -120,7 +121,7 @@ const LoginPage = () => {
         >
           {!isLoading ? 'Login' : 'Loading...'}
         </Button>
-        <span className="self-container">
+        <span className="text-center">
           Dont have an account?{' '}
           <Link
             href="/signup"
