@@ -18,8 +18,6 @@ import Image from 'next/image';
 //import Logo from '../../../../public/cypresslogo.svg';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-//import Loader from '@/components/global/Loader';
-//import { Separator } from '@/components/ui/separator';
 import { actionLoginUser } from '@/lib/server-actions/auth-actions';
 
 const LoginPage = () => {
@@ -73,14 +71,11 @@ const LoginPage = () => {
             className="font-semibold
           dark:text-white text-4xl first-letter:ml-2"
           >
-            cypress.
+            USIA Judge Portal
           </span>
         </Link>
-        <FormDescription
-          className="
-        text-foreground/60"
-        >
-          An all-In-One Collaboration and Productivity Platform
+        <FormDescription className="text-foreground/60 text-center">
+          Judging Portal for Ismaili Arts Festival
         </FormDescription>
         <FormField
           disabled={isLoading}
@@ -129,7 +124,7 @@ const LoginPage = () => {
           Dont have an account?{' '}
           <Link
             href="/signup"
-            className="text-primary"
+            className="text-slate-600 dark:text-slate-400 hover:underline"
           >
             Sign Up
           </Link>
