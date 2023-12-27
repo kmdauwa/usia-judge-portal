@@ -1,79 +1,77 @@
-import { integer, text, timestamp, pgTable, uuid } from "drizzle-orm/pg-core";
+import { integer, text, timestamp, pgTable, uuid, serial } from "drizzle-orm/pg-core";
 
-export const entries = pgTable('Entries', {
- entryId: uuid('entry_id').defaultRandom().primaryKey().notNull(),
- createdAt: timestamp('created_at', {
-  withTimezone: true,
-  mode: 'string',
- }),
- participantId: uuid('participant_id').notNull(),
- regionId: uuid('region_id').notNull().references(()=> regions.regionId),
- majorCategoryId: uuid('major_category_id').notNull().references(()=> majorCategory.majorCategoryId),
- groupClassId: uuid('group_class_id').notNull().references(()=> groupClass.groupClassId),
- ageCategoryId: uuid('age_category_id').notNull().references(()=> ageCategory.ageCategoryId),
- subCategoryId: uuid('sub_category_id').notNull().references(()=>subCategory.subCategoryId),
- timesJudged: integer('times_judged').default(0).notNull(),
- totalScore: integer('total_score').default(0).notNull(),
- averageScore: integer('average_score').default(0).notNull(),
+export const entries = pgTable("Entries", {
+	entryId: uuid("entryid").defaultRandom().primaryKey().notNull(),
+	createdAt: timestamp("createdat", { withTimezone: true, mode: 'string' }),
+	participantId: uuid("participantid").notNull(),
+	regionId: integer("regionid").notNull().references(() => regions.regionId),
+	majorCategoryId: integer("majorcategoryid").notNull().references(() => majorCategory.majorCategoryId),
+	groupClassId: integer("groupclassid").notNull().references(() => groupClasses.groupClassId),
+	ageCategoryId: integer("agecategoryid").notNull().references(() => ageCategory.ageCategoryId),
+	subCategoryId: integer("subcategoryid").notNull().references(() => subCategory.subCategoryId),
+	timesJudged: integer("timesjudged").default(0).notNull(),
+	totalScore: integer("totalscore").default(0).notNull(),
+	averageScore: integer("averagescore").default(0).notNull(),
 });
 
-export const participants = pgTable('Participants', {
-  participantId: uuid('participant_id').defaultRandom().primaryKey().notNull(),
-  firstName: text('first_name').notNull(),
-  lastName: text('last_name').notNull(),
-  regionId: uuid('region_id').notNull().references(()=> regions.regionId),
-  jkName: text('jk_name').notNull()
+export const ageCategory = pgTable("AgeCategory", {
+	ageCategoryId: serial("agecategoryid").primaryKey().notNull(),
+	ageCategoryName: text("agecategoryname").notNull(),
 });
 
-export const regions = pgTable('Regions', {
-  regionId: uuid('region_id').defaultRandom().primaryKey().notNull(),
-  regionName: text('region_name').notNull()
+export const groupClasses = pgTable("GroupClasses", {
+	groupClassId: serial("groupclassid").primaryKey().notNull(),
+	groupClassName: text("groupclassname").notNull(),
 });
 
-export const majorCategory = pgTable('Major_Category', {
-  majorCategoryId: uuid('major_category_id').defaultRandom().primaryKey().notNull(),
-  majorCategoryName: text('major_category_name').notNull()
+export const judges = pgTable("Judges", {
+	judgesId: uuid("judgesid").defaultRandom().primaryKey().notNull(),
+	judgeEmail: text("email").notNull(),
+	judgeName: text("judgename").notNull(),
+	majorCategoryId: integer("majorcategoryid").notNull().references(() => majorCategory.majorCategoryId),
+	subCategoryId: integer("subcategoryid").notNull().references(() => subCategory.subCategoryId),
 });
 
-export const groupClass = pgTable('Group_Classes', {
-  groupClassId: uuid('group_class_id').defaultRandom().primaryKey().notNull(),
-  groupClassName: text('group_class_name').notNull()
+export const majorCategory = pgTable("MajorCategory", {
+	majorCategoryId: serial("majorcategoryid").primaryKey().notNull(),
+	majorCategoryName: text("majorcategoryname").notNull(),
 });
 
-export const ageCategory = pgTable('Age_Category', {
-  ageCategoryId: uuid('age_category_id').defaultRandom().primaryKey().notNull(),
-  ageCategoryName: text('age_category_name').notNull()
+export const participants = pgTable("Participants", {
+	participantId: uuid("participantid").defaultRandom().primaryKey().notNull(),
+	firstName: text("firstname").notNull(),
+	lastName: text("lastname").notNull(),
+	regionId: integer("regionid").notNull().references(() => regions.regionId),
+	jkName: text("jkname").notNull(),
 });
 
-export const subCategory = pgTable('Sub_Category', {
-  subCategoryId: uuid('sub_category_id').defaultRandom().primaryKey().notNull(),
-  subCategoryName: text('sub_category_name').notNull()
+export const regions = pgTable("Regions", {
+	regionId: serial("regionid").primaryKey().notNull(),
+	regionName: text("regionname").notNull(),
 });
 
-export const scores = pgTable('Scores', {
-  scoreId: uuid('score_id').defaultRandom().primaryKey().notNull(),
-  entryId: uuid('entry_id').notNull().references(()=>entries.entryId),
-  majorCategoryId: uuid('major_category_id').notNull().references(()=> majorCategory.majorCategoryId),
-  judgeId: uuid('judge_id').notNull().references(()=>judges.judgeId),
-  score: integer('score').notNull(),
+export const scores = pgTable("Scores", {
+	scoreId: uuid("scoreid").defaultRandom().primaryKey().notNull(),
+	entryId: uuid("entryid").notNull().references(() => entries.entryId),
+	majorCategoryId: integer("majorcategoryid").notNull().references(() => majorCategory.majorCategoryId),
+	judgeId: uuid("judgeid").notNull().references(() => judges.judgesId),
+	score: integer("score").notNull(),
 });
 
-export const judges = pgTable('Judges', {
-  judgeId: uuid('judges_id').defaultRandom().primaryKey().notNull(),
-  judgeName: text('judge_name').notNull(),
-  majorCategoryId: uuid('major_category_id').notNull().references(()=> majorCategory.majorCategoryId),
-  subCategoryId: uuid('sub_category_id').notNull().references(()=>subCategory.subCategoryId),
+export const subCategory = pgTable("SubCategory", {
+	subCategoryId: serial("subcategoryid").primaryKey().notNull(),
+	subCategoryName: text("subcategoryname").notNull(),
 });
 
-export const userType = pgTable('User_Type', {
-  userTypeId: uuid('user_type_id').defaultRandom().primaryKey().notNull(),
-  userTypeName: text('user_type_name').notNull(),
+export const userType = pgTable("UserType", {
+	userTypeId: serial("usertype_id").primaryKey().notNull(),
+	userTypeName: text("usertype_name").notNull(),
 });
 
-export const users = pgTable('Users', {
-  userId: uuid('userid').primaryKey().notNull(),
-  username: text('username').notNull(),
-  userTypeId: uuid('user_type_id').notNull().references(()=>userType.userTypeId),
+export const users = pgTable("Users", {
+	userid: uuid("userid").primaryKey().notNull(),
+	username: text("username").notNull(),
+	userTypeId: integer("usertypeid").notNull().references(() => userType.userTypeId),
 });
 
 

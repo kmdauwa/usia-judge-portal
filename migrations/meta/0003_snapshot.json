@@ -1,0 +1,583 @@
+{
+  "id": "89dd4eeb-8934-4163-8e7b-c63109678e9c",
+  "prevId": "5c82c45e-9040-40be-951f-f7e477b53d43",
+  "version": "5",
+  "dialect": "pg",
+  "tables": {
+    "AgeCategory": {
+      "name": "AgeCategory",
+      "schema": "",
+      "columns": {
+        "agecategoryid": {
+          "name": "agecategoryid",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "agecategoryname": {
+          "name": "agecategoryname",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "Entries": {
+      "name": "Entries",
+      "schema": "",
+      "columns": {
+        "entryid": {
+          "name": "entryid",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "createdat": {
+          "name": "createdat",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "participantid": {
+          "name": "participantid",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "regionid": {
+          "name": "regionid",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "major_categoryid": {
+          "name": "major_categoryid",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "groupclassid": {
+          "name": "groupclassid",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "agecategoryid": {
+          "name": "agecategoryid",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "subcategoryid": {
+          "name": "subcategoryid",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "timesjudged": {
+          "name": "timesjudged",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "totalscore": {
+          "name": "totalscore",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "averagescore": {
+          "name": "averagescore",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "Entries_regionid_Regions_regionid_fk": {
+          "name": "Entries_regionid_Regions_regionid_fk",
+          "tableFrom": "Entries",
+          "tableTo": "Regions",
+          "columnsFrom": [
+            "regionid"
+          ],
+          "columnsTo": [
+            "regionid"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "Entries_major_categoryid_MajorCategory_majorcategoryid_fk": {
+          "name": "Entries_major_categoryid_MajorCategory_majorcategoryid_fk",
+          "tableFrom": "Entries",
+          "tableTo": "MajorCategory",
+          "columnsFrom": [
+            "major_categoryid"
+          ],
+          "columnsTo": [
+            "majorcategoryid"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "Entries_groupclassid_GroupClasses_groupclassid_fk": {
+          "name": "Entries_groupclassid_GroupClasses_groupclassid_fk",
+          "tableFrom": "Entries",
+          "tableTo": "GroupClasses",
+          "columnsFrom": [
+            "groupclassid"
+          ],
+          "columnsTo": [
+            "groupclassid"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "Entries_agecategoryid_AgeCategory_agecategoryid_fk": {
+          "name": "Entries_agecategoryid_AgeCategory_agecategoryid_fk",
+          "tableFrom": "Entries",
+          "tableTo": "AgeCategory",
+          "columnsFrom": [
+            "agecategoryid"
+          ],
+          "columnsTo": [
+            "agecategoryid"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "Entries_subcategoryid_SubCategory_subcategoryid_fk": {
+          "name": "Entries_subcategoryid_SubCategory_subcategoryid_fk",
+          "tableFrom": "Entries",
+          "tableTo": "SubCategory",
+          "columnsFrom": [
+            "subcategoryid"
+          ],
+          "columnsTo": [
+            "subcategoryid"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "GroupClasses": {
+      "name": "GroupClasses",
+      "schema": "",
+      "columns": {
+        "groupclassid": {
+          "name": "groupclassid",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "groupclassname": {
+          "name": "groupclassname",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "Judges": {
+      "name": "Judges",
+      "schema": "",
+      "columns": {
+        "judgesid": {
+          "name": "judgesid",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "judgename": {
+          "name": "judgename",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "majorcategoryid": {
+          "name": "majorcategoryid",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "subcategoryid": {
+          "name": "subcategoryid",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "Judges_majorcategoryid_MajorCategory_majorcategoryid_fk": {
+          "name": "Judges_majorcategoryid_MajorCategory_majorcategoryid_fk",
+          "tableFrom": "Judges",
+          "tableTo": "MajorCategory",
+          "columnsFrom": [
+            "majorcategoryid"
+          ],
+          "columnsTo": [
+            "majorcategoryid"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "Judges_subcategoryid_SubCategory_subcategoryid_fk": {
+          "name": "Judges_subcategoryid_SubCategory_subcategoryid_fk",
+          "tableFrom": "Judges",
+          "tableTo": "SubCategory",
+          "columnsFrom": [
+            "subcategoryid"
+          ],
+          "columnsTo": [
+            "subcategoryid"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "MajorCategory": {
+      "name": "MajorCategory",
+      "schema": "",
+      "columns": {
+        "majorcategoryid": {
+          "name": "majorcategoryid",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "majorcategoryname": {
+          "name": "majorcategoryname",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "Participants": {
+      "name": "Participants",
+      "schema": "",
+      "columns": {
+        "participantid": {
+          "name": "participantid",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "firstname": {
+          "name": "firstname",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "lastname": {
+          "name": "lastname",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "regionid": {
+          "name": "regionid",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "jkname": {
+          "name": "jkname",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "Participants_regionid_Regions_regionid_fk": {
+          "name": "Participants_regionid_Regions_regionid_fk",
+          "tableFrom": "Participants",
+          "tableTo": "Regions",
+          "columnsFrom": [
+            "regionid"
+          ],
+          "columnsTo": [
+            "regionid"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "Regions": {
+      "name": "Regions",
+      "schema": "",
+      "columns": {
+        "regionid": {
+          "name": "regionid",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "regionname": {
+          "name": "regionname",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "Scores": {
+      "name": "Scores",
+      "schema": "",
+      "columns": {
+        "scoreid": {
+          "name": "scoreid",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "entryid": {
+          "name": "entryid",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "majorcategoryid": {
+          "name": "majorcategoryid",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "judgeid": {
+          "name": "judgeid",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "score": {
+          "name": "score",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "Scores_entryid_Entries_entryid_fk": {
+          "name": "Scores_entryid_Entries_entryid_fk",
+          "tableFrom": "Scores",
+          "tableTo": "Entries",
+          "columnsFrom": [
+            "entryid"
+          ],
+          "columnsTo": [
+            "entryid"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "Scores_majorcategoryid_MajorCategory_majorcategoryid_fk": {
+          "name": "Scores_majorcategoryid_MajorCategory_majorcategoryid_fk",
+          "tableFrom": "Scores",
+          "tableTo": "MajorCategory",
+          "columnsFrom": [
+            "majorcategoryid"
+          ],
+          "columnsTo": [
+            "majorcategoryid"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "Scores_judgeid_Judges_judgesid_fk": {
+          "name": "Scores_judgeid_Judges_judgesid_fk",
+          "tableFrom": "Scores",
+          "tableTo": "Judges",
+          "columnsFrom": [
+            "judgeid"
+          ],
+          "columnsTo": [
+            "judgesid"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "SubCategory": {
+      "name": "SubCategory",
+      "schema": "",
+      "columns": {
+        "subcategoryid": {
+          "name": "subcategoryid",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "subcategoryname": {
+          "name": "subcategoryname",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "UserType": {
+      "name": "UserType",
+      "schema": "",
+      "columns": {
+        "usertype_id": {
+          "name": "usertype_id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "usertype_name": {
+          "name": "usertype_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "Users": {
+      "name": "Users",
+      "schema": "",
+      "columns": {
+        "userid": {
+          "name": "userid",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "username": {
+          "name": "username",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "usertypeid": {
+          "name": "usertypeid",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "Users_usertypeid_UserType_usertype_id_fk": {
+          "name": "Users_usertypeid_UserType_usertype_id_fk",
+          "tableFrom": "Users",
+          "tableTo": "UserType",
+          "columnsFrom": [
+            "usertypeid"
+          ],
+          "columnsTo": [
+            "usertype_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {
+      "\"Age_Category\"": "\"AgeCategory\"",
+      "\"Group_Classes\"": "\"GroupClasses\"",
+      "\"Major_Category\"": "\"MajorCategory\"",
+      "\"Sub_Category\"": "\"SubCategory\"",
+      "\"User_Type\"": "\"UserType\""
+    },
+    "columns": {
+      "\"Entries\".\"entry_id\"": "\"Entries\".\"entryid\"",
+      "\"Entries\".\"created_at\"": "\"Entries\".\"createdat\"",
+      "\"Entries\".\"participant_id\"": "\"Entries\".\"participantid\"",
+      "\"Entries\".\"region_id\"": "\"Entries\".\"regionid\"",
+      "\"Entries\".\"major_category_id\"": "\"Entries\".\"major_categoryid\"",
+      "\"Entries\".\"group_class_id\"": "\"Entries\".\"groupclassid\"",
+      "\"Entries\".\"age_category_id\"": "\"Entries\".\"agecategoryid\"",
+      "\"Entries\".\"sub_category_id\"": "\"Entries\".\"subcategoryid\"",
+      "\"Entries\".\"times_judged\"": "\"Entries\".\"timesjudged\"",
+      "\"Entries\".\"total_score\"": "\"Entries\".\"totalscore\"",
+      "\"Entries\".\"average_score\"": "\"Entries\".\"averagescore\"",
+      "\"Judges\".\"judges_id\"": "\"Judges\".\"judgesid\"",
+      "\"Judges\".\"judge_name\"": "\"Judges\".\"judgename\"",
+      "\"Judges\".\"major_category_id\"": "\"Judges\".\"majorcategoryid\"",
+      "\"Judges\".\"sub_category_id\"": "\"Judges\".\"subcategoryid\"",
+      "\"Participants\".\"participant_id\"": "\"Participants\".\"participantid\"",
+      "\"Participants\".\"first_name\"": "\"Participants\".\"firstname\"",
+      "\"Participants\".\"last_name\"": "\"Participants\".\"lastname\"",
+      "\"Participants\".\"region_id\"": "\"Participants\".\"regionid\"",
+      "\"Participants\".\"jk_name\"": "\"Participants\".\"jkname\"",
+      "\"Regions\".\"region_id\"": "\"Regions\".\"regionid\"",
+      "\"Regions\".\"region_name\"": "\"Regions\".\"regionname\"",
+      "\"Scores\".\"score_id\"": "\"Scores\".\"scoreid\"",
+      "\"Scores\".\"entry_id\"": "\"Scores\".\"entryid\"",
+      "\"Scores\".\"major_category_id\"": "\"Scores\".\"majorcategoryid\"",
+      "\"Scores\".\"judge_id\"": "\"Scores\".\"judgeid\"",
+      "\"Users\".\"user_type_id\"": "\"Users\".\"usertypeid\"",
+      "\"AgeCategory\".\"age_category_id\"": "\"AgeCategory\".\"agecategoryid\"",
+      "\"AgeCategory\".\"age_category_name\"": "\"AgeCategory\".\"agecategoryname\"",
+      "\"GroupClasses\".\"group_class_id\"": "\"GroupClasses\".\"groupclassid\"",
+      "\"GroupClasses\".\"group_class_name\"": "\"GroupClasses\".\"groupclassname\"",
+      "\"MajorCategory\".\"major_category_id\"": "\"MajorCategory\".\"majorcategoryid\"",
+      "\"MajorCategory\".\"major_category_name\"": "\"MajorCategory\".\"majorcategoryname\"",
+      "\"SubCategory\".\"sub_category_id\"": "\"SubCategory\".\"subcategoryid\"",
+      "\"SubCategory\".\"sub_category_name\"": "\"SubCategory\".\"subcategoryname\"",
+      "\"UserType\".\"user_type_id\"": "\"UserType\".\"usertype_id\"",
+      "\"UserType\".\"user_type_name\"": "\"UserType\".\"usertype_name\""
+    }
+  }
+}
