@@ -8,7 +8,7 @@ export async function middleware(req: NextRequest) {
         data: { session }
     } = await supabase.auth.getSession()
 
-    if (req.nextUrl.pathname.startsWith("/dashboard")) {
+    if (req.nextUrl.pathname.startsWith("/home")) {
         if (!session) {
             return NextResponse.redirect(new URL('/login', req.url))
         }
@@ -31,7 +31,7 @@ export async function middleware(req: NextRequest) {
   
     if (['/login', '/signup'].includes(req.nextUrl.pathname)) {
         if (session) {
-            return NextResponse.redirect(new URL('/dashboard', req.url));
+            return NextResponse.redirect(new URL('/home', req.url));
         }
     }
     return res;

@@ -1,9 +1,9 @@
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { cookies } from 'next/headers'
 
-const DashboardPage = async () => {
+const HomePage = async () => {
   const supabase = createServerComponentClient({ cookies})
   const {
     data: { user }
@@ -12,8 +12,8 @@ const DashboardPage = async () => {
   if (!user) return
 
   return (
-    <div>Dashboard, Welcome {user.email}!</div>
+    <div>Home Page, Welcome {user.email}!</div>
   )
 }
 
-export default DashboardPage
+export default HomePage
