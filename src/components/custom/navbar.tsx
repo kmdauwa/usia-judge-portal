@@ -1,9 +1,11 @@
 "use client";
 import React, { useEffect } from "react";
-import Image from "next/image";
+import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import Logo from "../../../public/gef2024logo.png";
+import Image from "next/image";
 import { actionSignOutUser } from "@/lib/server-actions/auth-actions";
 import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 interface User {
 	name: string;
@@ -11,8 +13,9 @@ interface User {
 	// add more fields below based on the user data that is fetched from supabase client
 }
 
-const Navbar: React.FC<{ user: User }> = ({ user }) => {
+const Navbarnew: React.FC<{ user: User }> = ({ user }) => {
 	const router = useRouter();
+	const pathname = usePathname();
 
 	const handleSignOut = async () => {
 		const { error } = await actionSignOutUser();
@@ -25,144 +28,84 @@ const Navbar: React.FC<{ user: User }> = ({ user }) => {
 	};
 
 	return (
-		<nav className="bg-white sticky top-0 border-gray-200 dark:bg-gray-900">
-			<div className="max-w-screen-lg flex flex-wrap items-center justify-between mx-auto p-5">
-				<a
-					href="/home"
-					className="flex max-w-sm items-center space-x-3 rtl:space-x-reverse">
-					<Image src={Logo} height={50} alt="GE Festival Logo" />
+		<div className="sticky top-0 bg-white">
+			<Navbar
+				fluid
+				rounded
+				className="max-w-screen-lg items-center justify-between mx-auto p-5">
+				<Navbar.Brand href="/home">
+					<Image
+						className="mx-3"
+						src={Logo}
+						height={50}
+						alt="GE Festival Logo"
+					/>
 					<span className="self-center text-2xl font-[500] whitespace-nowrap dark:text-white">
 						USIA Judge Portal
 					</span>
-				</a>
-				<div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-					<button
-						type="button"
-						className="flex text-sm rounded-full md:me-0 dark:focus:ring-gray-600"
-						id="user-menu-button"
-						aria-expanded="false"
-						data-dropdown-toggle="user-dropdown"
-						data-dropdown-placement="bottom">
-						<span className="sr-only">Open user menu</span>
-						<Image
-							className="rounded-full"
-							height={35}
-							width={35}
-							src="https://img.icons8.com/material/96/user-male-circle--v1.png"
-							alt="user photo"
-						/>
-					</button>
-					{/*-- Dropdown menu -*/}
-					<div
-						className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
-						id="user-dropdown">
-						<div className="px-4 py-3">
-							<span className="block text-sm text-gray-900 dark:text-white">
-								{user.name}
-							</span>
-							<span className="block text-sm text-gray-500 truncate dark:text-gray-400">
+				</Navbar.Brand>
+				<div className="flex md:order-2">
+					<Dropdown
+						arrowIcon={false}
+						inline
+						label={
+							<Avatar
+								alt="User settings"
+								img="https://img.icons8.com/material/96/user-male-circle--v1.png"
+								rounded
+							/>
+						}>
+						<Dropdown.Header>
+							<span className="block text-sm">{user.name}</span>
+							<span className="block truncate text-sm font-medium">
 								{user.email}
 							</span>
-						</div>
-						<ul className="py-2" aria-labelledby="user-menu-button">
-							{false && (
-								<>
-									<li>
-										<a
-											href="#"
-											className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-											Dashboard
-										</a>
-									</li>
-									<li>
-										<a
-											href="#"
-											className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-											Settings
-										</a>
-									</li>
-									<li>
-										<a
-											href="#"
-											className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-											Scores
-										</a>
-									</li>
-								</>
-							)}
-							<li>
-								<button
-									onClick={(e) => handleSignOut()}
-									className="flex px-4 py-2 w-full text-sm text-red-500 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-									Sign out
-								</button>
-							</li>
-						</ul>
-					</div>
-					<button
-						data-collapse-toggle="navbar-user"
-						type="button"
-						className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-						aria-controls="navbar-user"
-						aria-expanded="false">
-						<span className="sr-only">Open main menu</span>
-						<svg
-							className="w-5 h-5"
-							aria-hidden="true"
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 17 14">
-							<path
-								stroke="currentColor"
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								strokeWidth="2"
-								d="M1 1h15M1 7h15M1 13h15"
-							/>
-						</svg>
-					</button>
+						</Dropdown.Header>
+						{false && (
+							<>
+								<Dropdown.Item>Dashboard</Dropdown.Item>
+								<Dropdown.Item>Settings</Dropdown.Item>
+								<Dropdown.Item>Earnings</Dropdown.Item>
+								<Dropdown.Divider />
+							</>
+						)}
+						<Dropdown.Item
+							onClick={() => handleSignOut()}
+							className="text-red-500">
+							Sign out
+						</Dropdown.Item>
+					</Dropdown>
+					<Navbar.Toggle />
 				</div>
-				<div
-					className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-					id="navbar-user">
-					<ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-						<li>
-							<a
-								href="#"
-								className="block py-2 px-3 text-white bg-orient rounded md:bg-transparent md:text-orient-700 md:p-0 md:dark:text-orient-500"
-								aria-current="page">
-								Home
-							</a>
-						</li>
-						<li>
-							<a
-								href="#"
-								className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orient md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-								Arts
-							</a>
-						</li>
-						<li>
-							<a
-								href="#"
-								className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orient md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-								Films
-							</a>
-						</li>
-						<li>
-							<a
-								href="#"
-								className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orient md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-								Performing Arts
-							</a>
-						</li>
-						{/* <li>
-                            <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
-                        </li> */}
-					</ul>
-				</div>
-			</div>
-		</nav>
+				<Navbar.Collapse>
+					<Navbar.Link
+						className="tracking-wide text-[1rem]"
+						active={pathname === "/home"}
+						href="/home">
+						Home
+					</Navbar.Link>
+					<Navbar.Link
+						className="tracking-wide text-[1rem]"
+						active={pathname.includes("/art-gallery")}
+						href="/art-gallery">
+						Art Gallery
+					</Navbar.Link>
+					<Navbar.Link
+						className="tracking-wide text-[1rem]"
+						active={pathname.includes("/films")}
+						href="/films">
+						Films
+					</Navbar.Link>
+					<Navbar.Link
+						className="tracking-wide text-[1rem]"
+						active={pathname.includes("/performing-arts")}
+						href="/performing-arts">
+						Performing Arts
+					</Navbar.Link>
+				</Navbar.Collapse>
+			</Navbar>
+		</div>
 	);
 };
 
-export default Navbar;
+export default Navbarnew;
