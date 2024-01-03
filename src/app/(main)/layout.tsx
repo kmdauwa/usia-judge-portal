@@ -18,7 +18,7 @@ const Layout: React.FC<LayoutProps> = async ({ children, params }) => {
 		<div>
 			<Navbar user={user || Object()} />
 			<div className="bg-slate-100">
-				<div className="max-w-screen-lg h-screen items-center justify-between mx-auto p-10">
+				<div className="max-w-screen-lg min-h-screen items-center justify-between mx-auto p-10">
 					{children}
 				</div>
 			</div>

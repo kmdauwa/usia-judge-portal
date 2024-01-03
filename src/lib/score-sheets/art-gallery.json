@@ -1,0 +1,298 @@
+{
+	"topic": "Art Gallery",
+	"numOfCategories": 7,
+	"subCategories": [
+		{
+			"subcategoryTitle": "Canvas Mediums, Paper Media, Print Media / Graphic Design / Digital",
+			"questions": [
+				{
+					"criteria": "Creativity and Content",
+					"description": [
+						"Uniqueness of concept, creativity, and originality of the depicted theme. Also, evaluate the incorporation and interpretation of the programme theme."
+					],
+					"maxCriteriaPoints": 10
+				},
+				{
+					"criteria": "Curatorial Relevance",
+					"description": [
+						"Artwork adheres to the curatorial thesis and contributes to the IAG curator's theme."
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Elements of Art/Composition",
+					"description": [
+						"Effective use of standard elements of art: line, colour, space, form, media, texture."
+					],
+					"maxCriteriaPoints": 15
+				},
+				{
+					"criteria": "Technique, Execution, Artistic Talent",
+					"description": [
+						"Craftsmanship: Artist skill in the use of materials and forms, real and abstract techniques."
+					],
+					"maxCriteriaPoints": 25
+				},
+				{
+					"criteria": "Appearance, Presentation, Final Product",
+					"description": [
+						"Professional Quality/Neatness & Presentation: Overall neatness, tastefulness, and completeness of artwork; appearance, framing, mounting."
+					],
+					"maxCriteriaPoints": 10
+				}
+			],
+			"maxPoints": 80
+		},
+		{
+			"subcategoryTitle": "Artificial Intelligence (AI) Art",
+			"questions": [
+				{
+					"criteria": "Creativity and Content",
+					"description": [
+						"Uniqueness of concept, creativity, and originality of the depicted theme. Also, evaluate the incorporation and interpretation of the programme theme."
+					],
+					"maxCriteriaPoints": 10
+				},
+				{
+					"criteria": "Curatorial Relevance",
+					"description": [
+						"Artwork adheres to the curatorial thesis and contributes to the IAG curator's theme."
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Elements of Art/Composition",
+					"description": [
+						"Artist adheres to the artistic principles of the represented medium (e.g.: following craft and techniques for art representing photography for photorealistic images, following craft and technique for art presented as graphic design or digital art, etc)"
+					],
+					"maxCriteriaPoints": 15
+				},
+				{
+					"criteria": "Technique, Execution, Artistic Talent",
+					"description": [
+						"Artist's ability in providing unique direction or instructions to the generative program to create a narrative that is compelling and relevant. Fusion of artistic styles is harmonious and contributes to the narrative and artwork as a whole."
+					],
+					"maxCriteriaPoints": 25
+				},
+				{
+					"criteria": "Appearance, Presentation, Final Product",
+					"description": [
+						"Professional Quality/Neatness & Presentation: Overall neatness, tastefulness, and completeness of artwork; appearance, framing, mounting."
+					],
+					"maxCriteriaPoints": 10
+				}
+			],
+			"maxPoints": 80
+		},
+		{
+			"subcategoryTitle": "Photography",
+			"questions": [
+				{
+					"criteria": "Creativity and Content",
+					"description": [
+						"Uniqueness of concept. Creativity and originality of the depicted theme.",
+						"Storytelling: Innovative means of delivering the message and evoking emotions, such that each viewer may develop their own story from the image. Also, evaluate the incorporation and interpretation of the programme theme."
+					],
+					"maxCriteriaPoints": 10
+				},
+				{
+					"criteria": "Curatorial Relevance",
+					"description": [
+						"Artwork adheres to the curatorial thesis and contributes to the IAG curator's theme."
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Elements of Art/Composition",
+					"description": [
+						"Colour Balance/Lighting: Harmony of image or ability to evoke emotion by colours. Use and control of light, e.g. how dimension, shape, and roundness are defined in an image; using natural or man-made light to enhance the image."
+					],
+					"maxCriteriaPoints": 15
+				},
+				{
+					"criteria": "Technique, Execution, Artistic Talent",
+					"description": [
+						"Technical Excellence/Technique: Physical print quality of the image as it is presented for viewing; sharpness, exposure, correct colour; Approach used to create the image, e.g. lighting, posing, capture."
+					],
+					"maxCriteriaPoints": 25
+				},
+				{
+					"criteria": "Appearance, Presentation, Final Product",
+					"description": [
+						"Presentation: Finished look; use and selection of mats and borders to support and enhance the image (rather than distracting from it)."
+					],
+					"maxCriteriaPoints": 10
+				}
+			],
+			"maxPoints": 80
+		},
+		{
+			"subcategoryTitle": "3-Dimensional / Sculpture",
+			"questions": [
+				{
+					"criteria": "Creativity and Content",
+					"description": [
+						"Uniqueness of concept, creativity, and originality of the depicted theme. Also, evaluate the incorporation and interpretation of the programme theme."
+					],
+					"maxCriteriaPoints": 10
+				},
+				{
+					"criteria": "Curatorial Relevance",
+					"description": [
+						"Artwork adheres to the curatorial thesis and contributes to the IAG curator's theme."
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Elements of Art/Composition",
+					"description": [
+						"Complexity: Ambition of the entry (not the workmanship). The difficulty of the medium, materials, and tools used. Variety and difficulty of design elements. Difficulty and variety of techniques attempted. The intricacy of creating an object in the size/scale used in the entry."
+					],
+					"maxCriteriaPoints": 15
+				},
+				{
+					"criteria": "Technique, Execution, Artistic Talent",
+					"description": [
+						"Workmanship/Quality of Execution: Selection and application of materials. Respect for grain or natural structure of the material. Appropriate application of design (choice of subject/motifs, balance, style, etc.). Proportion, carving, or sculpting techniques used (is the sculpture an accurate reflection of the stated intended form?"
+					],
+					"maxCriteriaPoints": 25
+				},
+				{
+					"criteria": "Appearance, Presentation, Final Product",
+					"description": [
+						"Aesthetic Quality/Value: Aesthetic effect and appeal beyond technical proficiency.",
+						"Professional Quality/Neatness & Presentation: Overall neatness, tastefulness, and completeness of artwork; appearance, framing, mounting."
+					],
+					"maxCriteriaPoints": 10
+				}
+			],
+			"maxPoints": 80
+		},
+		{
+			"subcategoryTitle": "Mixed / Assembled Media",
+			"questions": [
+				{
+					"criteria": "Creativity and Content",
+					"description": [
+						"Uniqueness of concept, creativity, and originality of the depicted theme. Also, evaluate the incorporation and interpretation of the programme theme."
+					],
+					"maxCriteriaPoints": 10
+				},
+				{
+					"criteria": "Curatorial Relevance",
+					"description": [
+						"Artwork adheres to the curatorial thesis and contributes to the IAG curator's theme."
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Elements of Art/Composition",
+					"description": [
+						"Effective use of standard elements of art: line, colour, space, form, media, texture."
+					],
+					"maxCriteriaPoints": 15
+				},
+				{
+					"criteria": "Technique, Execution, Artistic Talent",
+					"description": [
+						"Workmanship/Quality of Execution: Selection and application of materials; appropriate application of design (choice of subject/motifs, balance, style, etc.)",
+						"Craftsmanship/Composition: demonstrated skill in the use of materials and forms, real and abstract techniques."
+					],
+					"maxCriteriaPoints": 25
+				},
+				{
+					"criteria": "Appearance, Presentation, Final Product",
+					"description": [
+						"Professional Quality/Neatness & Presentation: Overall neatness, tastefulness, and completeness of artwork; appearance, framing, mounting."
+					],
+					"maxCriteriaPoints": 10
+				}
+			],
+			"maxPoints": 80
+		},
+		{
+			"subcategoryTitle": "Art & Digital Installation",
+			"questions": [
+				{
+					"criteria": "Creativity and Content",
+					"description": [
+						"Uniqueness of concept, creativity, and originality of the depicted theme. Also, evaluate the incorporation and interpretation of the programme theme."
+					],
+					"maxCriteriaPoints": 10
+				},
+				{
+					"criteria": "Curatorial Relevance",
+					"description": [
+						"Artwork adheres to the curatorial thesis and contributes to the IAG curator's theme."
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Elements of Art/Composition",
+					"description": [
+						"Transform the Space: Ability of art to transform the space. How the art is created, constructed, or installed on the site where it is exhibited, incorporating materials or physical features on the site.",
+						"Complexity: Complexity of materials or digital technology used. The ambition of the entry (not the workmanship). The difficulty of the medium, materials, and tools used."
+					],
+					"maxCriteriaPoints": 15
+				},
+				{
+					"criteria": "Technique, Execution, Artistic Talent",
+					"description": [
+						"Workmanship/Quality of Execution: Selection and application of materials; appropriate application of design (choice of subject/motifs, balance, style, etc.)"
+					],
+					"maxCriteriaPoints": 25
+				},
+				{
+					"criteria": "Appearance, Presentation, Final Product",
+					"description": [
+						"Professional Quality/Neatness & Presentation: Overall neatness, tastefulness, appearance, and completeness of artwork."
+					],
+					"maxCriteriaPoints": 10
+				}
+			],
+			"maxPoints": 80
+		},
+		{
+			"subcategoryTitle": "Fashion & Textile",
+			"questions": [
+				{
+					"criteria": "Creativity and Content",
+					"description": [
+						"Uniqueness of concept, creativity, and originality of the depicted theme. Also, evaluate the incorporation and interpretation of the programme theme."
+					],
+					"maxCriteriaPoints": 10
+				},
+				{
+					"criteria": "Curatorial Relevance",
+					"description": [
+						"Artwork adheres to the curatorial thesis and contributes to the IAG curator's theme."
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Elements of Art/Composition",
+					"description": [
+						"Effective use of standard elements of art including colour, pattern, line, shape (silhouette), and texture, etc."
+					],
+					"maxCriteriaPoints": 15
+				},
+				{
+					"criteria": "Technique, Execution, Artistic Talent",
+					"description": [
+						"Workmanship/Quality of Execution: Selection and application of materials; appropriate application of design (choice of subject/motifs, balance, style, proportion, emphasis, rhythm, etc.)",
+						"Craftsmanship/Composition: demonstrated skill in the use of materials and forms, real and abstract techniques, and concepts of tradition and/or innovation in fashion and textile mediums."
+					],
+					"maxCriteriaPoints": 25
+				},
+				{
+					"criteria": "Appearance, Presentation, Final Product",
+					"description": [
+						"Professional Quality/Neatness & Presentation: Overall neatness, tastefulness, appearance, and completeness of artwork."
+					],
+					"maxCriteriaPoints": 10
+				}
+			],
+			"maxPoints": 80
+		}
+	]
+}

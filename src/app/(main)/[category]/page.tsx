@@ -1,6 +1,8 @@
 "use client";
 import React, { use, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import SampleScoreSheet from "@/components/custom/SampleScoreSheet";
+import PieceIdInput from "@/components/custom/PieceIdInput";
 
 const Categories = ["art-gallery", "films", "performing-arts"];
 
@@ -18,7 +20,14 @@ const TopicPage = ({ params }: { params: { category: string } }) => {
 
 	if (!Categories.includes(params.category)) return;
 
-	return <div>{params.category} page</div>;
+	return (
+		<div>
+			<PieceIdInput category={params.category} />
+			<br></br>
+			<br></br>
+			<SampleScoreSheet category={params.category} />
+		</div>
+	);
 };
 
 export default TopicPage;
