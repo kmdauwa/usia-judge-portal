@@ -32,7 +32,7 @@ const PieceIdInput = ({ category }: { category: string }) => {
 				{" "}
 				<input
 					className="md:w-1/2 mx-4 md:m-4 p-2 tracking-wider text-center border-2 border-slate-700 rounded-md [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-					type="number"
+					type="text"
 					placeholder="Enter Piece ID"
 				/>
 				<button

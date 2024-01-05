@@ -1,23 +1,14 @@
 import React from "react";
-import {
-	Accordion,
-	AccordionContent,
-	AccordionItem,
-	AccordionTrigger,
-} from "@/components/ui/accordion";
 import artScoreSheet from "@/lib/score-sheets/art-gallery.json";
+import filmScoreSheet from "@/lib/score-sheets/film-festival.json";
+import performanceScoreSheet from "@/lib/score-sheets/performing-arts.json";
 
 // JSON Schema for score sheet
 interface ScoreSheet {
 	topic: string;
 	numOfCategories: number;
-	subCategories: subCategoriesList[];
-}
-
-interface subCategoriesList {
-	subcategoryTitle: string;
-	questions: questionList[];
-	maxPoints: number;
+	subCategories: String[];
+	questions: questionList[]; // Add this line
 }
 
 interface questionList {
@@ -30,47 +21,46 @@ const SampleScoreSheet = ({ category }: { category: string }) => {
 	var data = {} as ScoreSheet;
 	if (category == "art-gallery") {
 		data = artScoreSheet as ScoreSheet;
+	} else if (category == "film-festival") {
+		data = filmScoreSheet as ScoreSheet;
+	} else if (category == "performing-arts") {
+		data = performanceScoreSheet as ScoreSheet;
 	}
 
 	return (
 		<div>
 			<h3 className="text-xl m-4 text-center font-[500] uppercase text-orient">
-				Sample Score Sheet (by Categories)
+				Sample Score Sheet
 			</h3>
-			<Accordion type="multiple">
-				{data?.subCategories?.map((subCategory, index) => (
-					<AccordionItem value={"item-" + index}>
-						<AccordionTrigger className="text-lg font-[400] text-slate-700">
-							{subCategory?.subcategoryTitle}
-						</AccordionTrigger>
-						<AccordionContent>
-							<ul className="px-4">
-								{subCategory?.questions.map(
-									(question, index) => (
-										<li key={index}>
-											<p className="text-[1rem] font-[500] italic">
-												{`${question.criteria} (${question.maxCriteriaPoints} points)`}
-											</p>
-											<ul className="ml-4 mb-2 text-slate-600 tracking-wide">
-												{question.description.map(
-													(description, index) => (
-														<li
-															className="py-1"
-															key={index}>
-															{description}
-														</li>
-													)
-												)}
-											</ul>
-										</li>
-									)
-								)}
-							</ul>
-						</AccordionContent>
-					</AccordionItem>
+			<div>
+				{data?.questions?.map((question, index) => (
+					<div key={index}>
+						<div className="flex flex-col justify-center md:flex-row">
+							<p className="text-lg italic font-[500] text-center">
+								{question.criteria}
+							</p>
+						</div>
+						<div className="flex flex-col justify-center md:flex-row">
+							<div className="text-center">
+								{question.description.map((desc, index) => (
+									<div key={index}>
+										<p>{desc}</p>
+									</div>
+								))}
+							</div>
+						</div>
+						<div className="flex flex-col justify-center md:flex-row">
+							<p className="text-center">
+								Max Points: {question.maxCriteriaPoints}
+							</p>
+						</div>
+						<br></br>
+					</div>
 				))}
-			</Accordion>
-
+			</div>
+			<div className="text-md m-4 text-center font-[500] uppercase text-orient">
+				Max Points: 80
+			</div>
 			<br></br>
 		</div>
 	);

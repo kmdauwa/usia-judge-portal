@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import SampleScoreSheet from "@/components/custom/SampleScoreSheet";
 import PieceIdInput from "@/components/custom/PieceIdInput";
 
-const Categories = ["art-gallery", "films", "performing-arts"];
+const Categories = ["art-gallery", "film-festival", "performing-arts"];
 
 const TopicPage = ({ params }: { params: { category: string } }) => {
 	const router = useRouter();
@@ -13,7 +13,7 @@ const TopicPage = ({ params }: { params: { category: string } }) => {
 	useEffect(() => {
 		if (!Categories.includes(params.category)) {
 			// Redirect or handle unauthorized access
-			console.log(params.category);
+			//console.log(params.category);
 			router.push("/home");
 		}
 	}, [params.category, router]);

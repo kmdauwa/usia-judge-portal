@@ -10,10 +10,11 @@ import { usePathname } from "next/navigation";
 interface User {
 	name: string;
 	email: string;
+	id: string;
 	// add more fields below based on the user data that is fetched from supabase client
 }
 
-const Navbarnew: React.FC<{ user: User }> = ({ user }) => {
+const NavbarUI: React.FC<{ user: User }> = ({ user }) => {
 	const router = useRouter();
 	const pathname = usePathname();
 
@@ -26,6 +27,10 @@ const Navbarnew: React.FC<{ user: User }> = ({ user }) => {
 			router.push("/login");
 		}
 	};
+
+	useEffect(() => {
+		console.log(user.id);
+	}, [user]);
 
 	return (
 		<div className="sticky top-0 bg-white">
@@ -92,9 +97,9 @@ const Navbarnew: React.FC<{ user: User }> = ({ user }) => {
 					</Navbar.Link>
 					<Navbar.Link
 						className="tracking-wide text-[1rem]"
-						active={pathname.includes("/films")}
-						href="/films">
-						Films
+						active={pathname.includes("/film-festival")}
+						href="/film-festival">
+						Film Festival
 					</Navbar.Link>
 					<Navbar.Link
 						className="tracking-wide text-[1rem]"
@@ -108,4 +113,4 @@ const Navbarnew: React.FC<{ user: User }> = ({ user }) => {
 	);
 };
 
-export default Navbarnew;
+export default NavbarUI;
