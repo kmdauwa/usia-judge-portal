@@ -37,3 +37,9 @@ export async function actionSignUpUser({
   });
   return response;
 }
+
+export async function actionSignOutUser() {
+  const supabase = createRouteHandlerClient({ cookies });
+  const response = await supabase.auth.signOut();
+  return response;
+}

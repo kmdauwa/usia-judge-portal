@@ -40,7 +40,7 @@ const LoginPage = () => {
       form.reset();
       setSubmitError(error.message);
     } else {
-      router.replace('/dashboard');
+      router.replace('/home');
     }
   };
 

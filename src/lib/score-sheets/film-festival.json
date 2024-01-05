@@ -1,0 +1,51 @@
+{
+	"topic": "Film Festival",
+	"numOfCategories": 7,
+	"subCategories": [
+		"Canvas Mediums, Paper Media, Print Media / Graphic Design / Digital",
+		"Artificial Intelligence (AI) Art",
+		"3-Dimensional / Sculpture",
+		"Photography",
+		"Mixed / Assembled Media",
+		"Art & Digital Installation",
+		"Fashion & Textile"
+	],
+	"questions": [
+		{
+			"criteria": "Creativity and Content",
+			"description": [
+				"Uniqueness of concept, creativity, and originality of the depicted theme. Also, evaluate the incorporation and interpretation of the programme theme."
+			],
+			"maxCriteriaPoints": 10
+		},
+		{
+			"criteria": "Curatorial Relevance",
+			"description": [
+				"Artwork adheres to the curatorial thesis and contributes to the IAG curator's theme."
+			],
+			"maxCriteriaPoints": 20
+		},
+		{
+			"criteria": "Elements of Art/Composition",
+			"description": [
+				"Effective use of standard elements of art: line, colour, space, form, media, texture."
+			],
+			"maxCriteriaPoints": 15
+		},
+		{
+			"criteria": "Technique, Execution, Artistic Talent",
+			"description": [
+				"Craftsmanship: Artist skill in the use of materials and forms, real and abstract techniques."
+			],
+			"maxCriteriaPoints": 25
+		},
+		{
+			"criteria": "Appearance, Presentation, Final Product",
+			"description": [
+				"Professional Quality/Neatness & Presentation: Overall neatness, tastefulness, and completeness of artwork; appearance, framing, mounting."
+			],
+			"maxCriteriaPoints": 10
+		}
+	],
+	"maxPoints": 80
+}
