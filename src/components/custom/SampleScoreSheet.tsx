@@ -29,14 +29,16 @@ const SampleScoreSheet = ({ category }: { category: string }) => {
 
 	return (
 		<div>
-			<h3 className="text-xl m-4 text-center font-[500] uppercase text-orient">
-				Sample Score Sheet
+			<h3 className="text-2xl m-4 text-center font-[500] uppercase text-orient">
+				Scoring Criterias
 			</h3>
-			<div>
+			<div className="flex flex-row flex-wrap p-4 justify-center items-stretch">
 				{data?.questions?.map((question, index) => (
-					<div key={index}>
+					<div
+						className="flex flex-col md:w-2/5 p-8 m-2 bg-slate-200 rounded-lg shadow-sm"
+						key={index}>
 						<div className="flex flex-col justify-center md:flex-row">
-							<p className="text-lg italic font-[500] text-center">
+							<p className="text-lg mb-1 italic font-[500] text-center">
 								{question.criteria}
 							</p>
 						</div>
@@ -49,12 +51,14 @@ const SampleScoreSheet = ({ category }: { category: string }) => {
 								))}
 							</div>
 						</div>
-						<div className="flex flex-col justify-center md:flex-row">
-							<p className="text-center">
-								Max Points: {question.maxCriteriaPoints}
+						<div className="flex flex-col justify-center mt-1 md:flex-row h-full justify-self-end">
+							<p className="text-center mt-auto">
+								Max Points:{" "}
+								<span className="text-orient">
+									{question.maxCriteriaPoints}
+								</span>
 							</p>
 						</div>
-						<br></br>
 					</div>
 				))}
 			</div>
