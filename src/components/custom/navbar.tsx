@@ -6,6 +6,7 @@ import Image from "next/image";
 import { actionSignOutUser } from "@/lib/server-actions/auth-actions";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
+import { getUserType } from "@/lib/server-actions/user-actions";
 
 interface User {
 	name: string;
@@ -29,7 +30,10 @@ const NavbarUI: React.FC<{ user: User }> = ({ user }) => {
 	};
 
 	useEffect(() => {
-		console.log(user.id);
+		// console.log(user.id);
+		getUserType(user.id).then((data) => {
+			console.log(data);
+		});
 	}, [user]);
 
 	return (
