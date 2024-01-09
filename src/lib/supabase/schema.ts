@@ -1,77 +1,94 @@
-import { integer, text, timestamp, pgTable, uuid, serial } from "drizzle-orm/pg-core";
+import { pgTable, pgEnum, serial, text, foreignKey, unique, uuid, integer, smallint, timestamp, real } from "drizzle-orm/pg-core"
+  import { sql } from "drizzle-orm"
 
-export const entries = pgTable("Entries", {
-	entryId: uuid("entryid").defaultRandom().primaryKey().notNull(),
-	createdAt: timestamp("createdat", { withTimezone: true, mode: 'string' }),
-	participantId: uuid("participantid").notNull(),
-	regionId: integer("regionid").notNull().references(() => regions.regionId),
-	majorCategoryId: integer("majorcategoryid").notNull().references(() => majorCategory.majorCategoryId),
-	groupClassId: integer("groupclassid").notNull().references(() => groupClasses.groupClassId),
-	ageCategoryId: integer("agecategoryid").notNull().references(() => ageCategory.ageCategoryId),
-	subCategoryId: integer("subcategoryid").notNull().references(() => subCategory.subCategoryId),
-	timesJudged: integer("timesjudged").default(0).notNull(),
-	totalScore: integer("totalscore").default(0).notNull(),
-	averageScore: integer("averagescore").default(0).notNull(),
-});
+export const keyStatus = pgEnum("key_status", ['default', 'valid', 'invalid', 'expired'])
+export const keyType = pgEnum("key_type", ['aead-ietf', 'aead-det', 'hmacsha512', 'hmacsha256', 'auth', 'shorthash', 'generichash', 'kdf', 'secretbox', 'secretstream', 'stream_xchacha20'])
+export const factorType = pgEnum("factor_type", ['totp', 'webauthn'])
+export const factorStatus = pgEnum("factor_status", ['unverified', 'verified'])
+export const aalLevel = pgEnum("aal_level", ['aal1', 'aal2', 'aal3'])
+export const codeChallengeMethod = pgEnum("code_challenge_method", ['s256', 'plain'])
+
 
 export const ageCategory = pgTable("AgeCategory", {
-	ageCategoryId: serial("agecategoryid").primaryKey().notNull(),
-	ageCategoryName: text("agecategoryname").notNull(),
+	agecategoryid: serial("agecategoryid").primaryKey().notNull(),
+	agecategoryname: text("agecategoryname").notNull(),
 });
 
 export const groupClasses = pgTable("GroupClasses", {
-	groupClassId: serial("groupclassid").primaryKey().notNull(),
-	groupClassName: text("groupclassname").notNull(),
-});
-
-export const judges = pgTable("Judges", {
-	judgesId: uuid("judgesid").defaultRandom().primaryKey().notNull(),
-	judgeEmail: text("email").notNull(),
-	judgeName: text("judgename").notNull(),
-	majorCategoryId: integer("majorcategoryid").notNull().references(() => majorCategory.majorCategoryId),
-	subCategoryId: integer("subcategoryid").notNull().references(() => subCategory.subCategoryId),
+	groupclassid: serial("groupclassid").primaryKey().notNull(),
+	groupclassname: text("groupclassname").notNull(),
 });
 
 export const majorCategory = pgTable("MajorCategory", {
-	majorCategoryId: serial("majorcategoryid").primaryKey().notNull(),
-	majorCategoryName: text("majorcategoryname").notNull(),
-});
-
-export const participants = pgTable("Participants", {
-	participantId: uuid("participantid").defaultRandom().primaryKey().notNull(),
-	firstName: text("firstname").notNull(),
-	lastName: text("lastname").notNull(),
-	regionId: integer("regionid").notNull().references(() => regions.regionId),
-	jkName: text("jkname").notNull(),
+	majorcategoryid: serial("majorcategoryid").primaryKey().notNull(),
+	majorcategoryname: text("majorcategoryname").notNull(),
 });
 
 export const regions = pgTable("Regions", {
-	regionId: serial("regionid").primaryKey().notNull(),
-	regionName: text("regionname").notNull(),
+	regionid: serial("regionid").primaryKey().notNull(),
+	regionname: text("regionname").notNull(),
 });
 
 export const scores = pgTable("Scores", {
-	scoreId: uuid("scoreid").defaultRandom().primaryKey().notNull(),
-	entryId: uuid("entryid").notNull().references(() => entries.entryId),
-	majorCategoryId: integer("majorcategoryid").notNull().references(() => majorCategory.majorCategoryId),
-	judgeId: uuid("judgeid").notNull().references(() => judges.judgesId),
+	scoreid: uuid("scoreid").defaultRandom().primaryKey().notNull(),
+	entryid: text("entryid").notNull().references(() => entries.entryid, { onDelete: "cascade", onUpdate: "cascade" } ),
+	majorcategoryid: integer("majorcategoryid").notNull().references(() => majorCategory.majorcategoryid),
+	judgeid: uuid("judgeid").notNull().references(() => judges.judgeid),
 	score: integer("score").notNull(),
+},
+(table) => {
+	return {
+		entryidjudgeidKey: unique("entryidjudgeid_key").on(table.entryid, table.judgeid),
+	}
+});
+
+export const judges = pgTable("Judges", {
+	judgeid: uuid("judgeid").defaultRandom().primaryKey().notNull(),
+	email: text("email").notNull(),
+	majorcategoryid: integer("majorcategoryid").notNull().references(() => majorCategory.majorcategoryid),
+	firstname: text("firstname"),
+	lastname: text("lastname"),
+	phonenumber: text("phonenumber"),
+	eventjudgeid: smallint("eventjudgeid"),
+});
+
+export const participants = pgTable("Participants", {
+	participantid: text("participantid").primaryKey().notNull(),
+	firstname: text("firstname").notNull(),
+	lastname: text("lastname").notNull(),
+	regionid: integer("regionid").notNull().references(() => regions.regionid),
 });
 
 export const subCategory = pgTable("SubCategory", {
-	subCategoryId: serial("subcategoryid").primaryKey().notNull(),
-	subCategoryName: text("subcategoryname").notNull(),
+	subcategoryid: serial("subcategoryid").primaryKey().notNull(),
+	subcategoryname: text("subcategoryname").notNull(),
+	majorcategoryid: integer("majorcategoryid").references(() => majorCategory.majorcategoryid, { onDelete: "cascade", onUpdate: "cascade" } ),
 });
 
 export const userType = pgTable("UserType", {
-	userTypeId: serial("usertype_id").primaryKey().notNull(),
-	userTypeName: text("usertype_name").notNull(),
+	usertypeId: serial("usertype_id").primaryKey().notNull(),
+	usertypeName: text("usertype_name").notNull(),
 });
 
 export const users = pgTable("Users", {
 	userid: uuid("userid").primaryKey().notNull(),
 	username: text("username").notNull(),
-	userTypeId: integer("usertypeid").notNull().references(() => userType.userTypeId),
+	usertypeid: integer("usertypeid").notNull().references(() => userType.usertypeId),
 });
 
-
+export const entries = pgTable("Entries", {
+	entryid: text("entryid").primaryKey().notNull(),
+	createdat: timestamp("createdat", { withTimezone: true, mode: 'string' }).defaultNow(),
+	participantid: text("participantid").notNull().references(() => participants.participantid),
+	regionid: integer("regionid").notNull().references(() => regions.regionid),
+	majorcategoryid: integer("majorcategoryid").notNull().references(() => majorCategory.majorcategoryid),
+	groupclassid: integer("groupclassid").notNull().references(() => groupClasses.groupclassid),
+	agecategoryid: integer("agecategoryid").notNull().references(() => ageCategory.agecategoryid),
+	subcategoryid: integer("subcategoryid").notNull().references(() => subCategory.subcategoryid),
+	timesjudged: integer("timesjudged").default(0),
+	totalscore: integer("totalscore").default(0),
+	averagescore: real("averagescore"),
+	teamname: text("teamname"),
+	numofparticipants: integer("numofparticipants"),
+	title: text("title"),
+});
