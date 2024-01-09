@@ -1,10 +1,10 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import Logo from "../../../public/gef2024logo.png";
 import Image from "next/image";
 import { actionSignOutUser } from "@/lib/server-actions/auth-actions";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { usePathname } from "next/navigation";
 import { getUserType } from "@/lib/server-actions/user-actions";
 
@@ -18,6 +18,7 @@ interface User {
 const NavbarUI: React.FC<{ user: User }> = ({ user }) => {
 	const router = useRouter();
 	const pathname = usePathname();
+	const [userType, setUserType] = useState("");
 
 	const handleSignOut = async () => {
 		const { error } = await actionSignOutUser();
@@ -32,7 +33,7 @@ const NavbarUI: React.FC<{ user: User }> = ({ user }) => {
 	useEffect(() => {
 		// console.log(user.id);
 		getUserType(user.id).then((data) => {
-			console.log(data);
+			setUserType(data);
 		});
 	}, [user]);
 
@@ -70,7 +71,7 @@ const NavbarUI: React.FC<{ user: User }> = ({ user }) => {
 								{user.email}
 							</span>
 						</Dropdown.Header>
-						{false && (
+						{userType != "judge" && (
 							<>
 								<Dropdown.Item>Dashboard</Dropdown.Item>
 								<Dropdown.Item>Settings</Dropdown.Item>

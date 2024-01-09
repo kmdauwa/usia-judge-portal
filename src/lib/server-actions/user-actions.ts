@@ -23,5 +23,6 @@ export async function getUserType(id: string) {
         userTypeName: userType.usertypeName
     }).from(userType).where(eq(users.userid, id)).leftJoin(users, eq(users.usertypeid, userType.usertypeId))
 
+
     return result[0].userTypeName;
 }

@@ -22,7 +22,7 @@ const PieceIdInput = ({ category }: { category: string }) => {
 	};
 
 	return (
-		<div className="bg-slate-200 p-4 rounded-lg pb-10">
+		<div className="bg-slate-200 p-4 rounded-lg pb-10 shadow-sm">
 			<h3 className="text-xl m-4 text-center font-[500] uppercase text-orient">
 				Enter the unique ID of the {category} piece you want to score:
 			</h3>
@@ -37,7 +37,7 @@ const PieceIdInput = ({ category }: { category: string }) => {
 				/>
 				<button
 					type="submit"
-					className="bg-slate-700 text-white rounded-md p-2 m-4 md:mx-0">
+					className="bg-slate-700 text-white rounded-md p-2 px-4 m-4 md:mx-0">
 					Submit
 				</button>
 			</form>
