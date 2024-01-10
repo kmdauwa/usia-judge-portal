@@ -6,19 +6,25 @@ import Image from "next/image";
 import { actionSignOutUser } from "@/lib/server-actions/auth-actions";
 import { useRouter, useSearchParams } from "next/navigation";
 import { usePathname } from "next/navigation";
-import { getUserType } from "@/lib/server-actions/user-actions";
+import {
+	getUserType,
+	getJudgeMajorCategory,
+} from "@/lib/server-actions/user-actions";
+import { get } from "http";
 
 interface User {
-	name: string;
 	email: string;
 	id: string;
 	// add more fields below based on the user data that is fetched from supabase client
 }
 
-const NavbarUI: React.FC<{ user: User }> = ({ user }) => {
+const NavbarUI: React.FC<{
+	user: User;
+	userType: String;
+	judgeCategory: Number;
+}> = ({ user, userType, judgeCategory }) => {
 	const router = useRouter();
 	const pathname = usePathname();
-	const [userType, setUserType] = useState("");
 
 	const handleSignOut = async () => {
 		const { error } = await actionSignOutUser();
@@ -29,13 +35,6 @@ const NavbarUI: React.FC<{ user: User }> = ({ user }) => {
 			router.push("/login");
 		}
 	};
-
-	useEffect(() => {
-		// console.log(user.id);
-		getUserType(user.id).then((data) => {
-			setUserType(data);
-		});
-	}, [user]);
 
 	return (
 		<div className="sticky top-0 bg-white">
@@ -66,9 +65,8 @@ const NavbarUI: React.FC<{ user: User }> = ({ user }) => {
 							/>
 						}>
 						<Dropdown.Header>
-							<span className="block text-sm">{user.name}</span>
 							<span className="block truncate text-sm font-medium">
-								{user.email}
+								{user?.email || ""}
 							</span>
 						</Dropdown.Header>
 						{userType != "judge" && (
@@ -94,24 +92,30 @@ const NavbarUI: React.FC<{ user: User }> = ({ user }) => {
 						href="/home">
 						Home
 					</Navbar.Link>
-					<Navbar.Link
-						className="tracking-wide text-[1rem]"
-						active={pathname.includes("/art-gallery")}
-						href="/art-gallery">
-						Art Gallery
-					</Navbar.Link>
-					<Navbar.Link
-						className="tracking-wide text-[1rem]"
-						active={pathname.includes("/film-festival")}
-						href="/film-festival">
-						Film Festival
-					</Navbar.Link>
-					<Navbar.Link
-						className="tracking-wide text-[1rem]"
-						active={pathname.includes("/performing-arts")}
-						href="/performing-arts">
-						Performing Arts
-					</Navbar.Link>
+					{judgeCategory == 1 && (
+						<Navbar.Link
+							className="tracking-wide text-[1rem]"
+							active={pathname.includes("/art-gallery")}
+							href="/art-gallery">
+							Art Gallery
+						</Navbar.Link>
+					)}
+					{judgeCategory == 2 && (
+						<Navbar.Link
+							className="tracking-wide text-[1rem]"
+							active={pathname.includes("/film-festival")}
+							href="/film-festival">
+							Film Festival
+						</Navbar.Link>
+					)}
+					{judgeCategory == 3 && (
+						<Navbar.Link
+							className="tracking-wide text-[1rem]"
+							active={pathname.includes("/performing-arts")}
+							href="/performing-arts">
+							Performing Arts
+						</Navbar.Link>
+					)}
 				</Navbar.Collapse>
 			</Navbar>
 		</div>
