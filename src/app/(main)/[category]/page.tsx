@@ -1,7 +1,7 @@
 "use client";
 import React, { use, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import SampleScoreSheet from "@/components/custom/SampleScoreSheet";
+import ScoreSheetInput from "@/components/custom/ScoreSheetInput";
 import PieceIdInput from "@/components/custom/PieceIdInput";
 
 const Categories = ["art-gallery", "film-festival", "performing-arts"];
@@ -25,7 +25,7 @@ const TopicPage = ({ params }: { params: { category: string } }) => {
 			<PieceIdInput category={params.category} />
 			<br></br>
 			<br></br>
-			<SampleScoreSheet category={params.category} />
+			<ScoreSheetInput category={params.category} />
 		</div>
 	);
 };
