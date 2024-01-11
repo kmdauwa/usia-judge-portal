@@ -14,6 +14,38 @@ export const ageCategory = pgTable("AgeCategory", {
 	agecategoryname: text("agecategoryname").notNull(),
 });
 
+export const scores = pgTable("Scores", {
+	scoreid: uuid("scoreid").defaultRandom().primaryKey().notNull(),
+	entryid: text("entryid").notNull().references(() => entries.entryid, { onDelete: "cascade", onUpdate: "cascade" } ),
+	majorcategoryid: integer("majorcategoryid").notNull().references(() => majorCategory.majorcategoryid),
+	judgeid: uuid("judgeid").notNull().references(() => judges.judgeid),
+	score: smallint("score").notNull(),
+	agCreativityScore: smallint("ag_creativity_score"),
+	agCuratorialScore: smallint("ag_curatorial_score"),
+	agElementsScore: smallint("ag_elements_score"),
+	agTechniqueScore: smallint("ag_technique_score"),
+	agAppearanceScore: smallint("ag_appearance_score"),
+	ffStorylineScore: smallint("ff_storyline_score"),
+	ffDirectionScore: smallint("ff_direction_score"),
+	ffEditingScore: smallint("ff_editing_score"),
+	ffSoundScore: smallint("ff_sound_score"),
+	ffCinematographyScore: smallint("ff_cinematography_score"),
+	ffPerformanceScore: smallint("ff_performance_score"),
+	ffVisualScore: smallint("ff_visual_score"),
+	ffSpecialScore: smallint("ff_special_score"),
+	paTechniqueScore: smallint("pa_technique_score"),
+	paQualityScore: smallint("pa_quality_score"),
+	paCreativityScore: smallint("pa_creativity_score"),
+	paMusicalityScore: smallint("pa_musicality_score"),
+	paOverallScore: smallint("pa_overall_score"),
+	createdAt: timestamp("createdAt", { mode: 'string' }).default((now() AT TIME ZONE 'cst'::text)),
+},
+(table) => {
+	return {
+		entryidjudgeidKey: unique("entryidjudgeid_key").on(table.entryid, table.judgeid),
+	}
+});
+
 export const groupClasses = pgTable("GroupClasses", {
 	groupclassid: serial("groupclassid").primaryKey().notNull(),
 	groupclassname: text("groupclassname").notNull(),
@@ -27,19 +59,6 @@ export const majorCategory = pgTable("MajorCategory", {
 export const regions = pgTable("Regions", {
 	regionid: serial("regionid").primaryKey().notNull(),
 	regionname: text("regionname").notNull(),
-});
-
-export const scores = pgTable("Scores", {
-	scoreid: uuid("scoreid").defaultRandom().primaryKey().notNull(),
-	entryid: text("entryid").notNull().references(() => entries.entryid, { onDelete: "cascade", onUpdate: "cascade" } ),
-	majorcategoryid: integer("majorcategoryid").notNull().references(() => majorCategory.majorcategoryid),
-	judgeid: uuid("judgeid").notNull().references(() => judges.judgeid),
-	score: integer("score").notNull(),
-},
-(table) => {
-	return {
-		entryidjudgeidKey: unique("entryidjudgeid_key").on(table.entryid, table.judgeid),
-	}
 });
 
 export const judges = pgTable("Judges", {
@@ -91,4 +110,22 @@ export const entries = pgTable("Entries", {
 	teamname: text("teamname"),
 	numofparticipants: integer("numofparticipants"),
 	title: text("title"),
+	agCreativityTotal: smallint("ag_creativity_total"),
+	agCuratorialTotal: smallint("ag_curatorial_total"),
+	agElementsTotal: smallint("ag_elements_total"),
+	agTechniqueTotal: smallint("ag_technique_total"),
+	agAppearanceTotal: smallint("ag_appearance_total"),
+	ffStorylineTotal: smallint("ff_storyline_total"),
+	ffDirectionTotal: smallint("ff_direction_total"),
+	ffEditingTotal: smallint("ff_editing_total"),
+	ffSoundTotal: smallint("ff_sound_total"),
+	ffCinematographyTotal: smallint("ff_cinematography_total"),
+	ffPerformanceTotal: smallint("ff_performance_total"),
+	ffVisualTotal: smallint("ff_visual_total"),
+	ffSpecialTotal: smallint("ff_special_total"),
+	paTechniqueTotal: smallint("pa_technique_total"),
+	paQualityTotal: smallint("pa_quality_total"),
+	paCreativityTotal: smallint("pa_creativity_total"),
+	paMusicalityTotal: smallint("pa_musicality_total"),
+	paOverallTotal: smallint("pa_overall_total"),
 });
