@@ -1,51 +1,240 @@
 {
 	"topic": "Film Festival",
-	"numOfCategories": 7,
+	"numOfCategories": 4,
 	"subCategories": [
-		"Canvas Mediums, Paper Media, Print Media / Graphic Design / Digital",
-		"Artificial Intelligence (AI) Art",
-		"3-Dimensional / Sculpture",
-		"Photography",
-		"Mixed / Assembled Media",
-		"Art & Digital Installation",
-		"Fashion & Textile"
-	],
-	"questions": [
 		{
-			"criteria": "Creativity and Content",
-			"description": [
-				"Uniqueness of concept, creativity, and originality of the depicted theme. Also, evaluate the incorporation and interpretation of the programme theme."
+			"subcategoryTitle": "REELS (Under 90 SECONDS)",
+			"questions": [
+				{
+					"criteria": "Storyline and Theme",
+					"description": [
+						"Clarity, depth, relevance, originality of the storyline; dialogue, flow, writing/script, entertainment value, significance. Also, evaluate the incorporation and interpretation of the programme theme."
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Direction and Production Design",
+					"description": [
+						"Shot structure, storytelling, look and feel, creativity, coherence, symbolic style, use of props, visual scheme, set dressing, set design, and mood of visual style."
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Editing",
+					"description": [
+						"Thematic relevance, style (does it work with the theme), flow, tricks for intention (jump cuts, inserts), appropriate use of transition grading, colouring, subtitling."
+					],
+					"maxCriteriaPoints": 15
+				},
+				{
+					"criteria": "Sound Design",
+					"description": [
+						"Clarity, audio sync with dialogue or sound effects, choice, and use of sound effects, music, soundtracks, voiceover/background effects, and sound balance."
+					],
+					"maxCriteriaPoints": 10
+				},
+				{
+					"criteria": "Cinematography",
+					"description": [
+						"Lighting, camera work, range of complicated shots (e.g. vertigo shot), camera angles, composition, framing, creativity."
+					],
+					"maxCriteriaPoints": 10
+				},
+				{
+					"criteria": "Performance/Character",
+					"description": [
+						"Acting, mood, realism, character depth, emotional connection with the viewer."
+					],
+					"maxCriteriaPoints": 10
+				},
+				{
+					"criteria": "Visual Effects",
+					"description": [
+						"Effective use of CGI (computer generated imagery), post-production, and green screen work."
+					],
+					"maxCriteriaPoints": 10
+				},
+				{
+					"criteria": "Special Effects/Stunts (anything is done in extreme)",
+					"description": [
+						"Use of fire or explosions, relevance, the reality of stunts and effects."
+					],
+					"maxCriteriaPoints": 5
+				}
 			],
-			"maxCriteriaPoints": 10
+			"maxPoints": 100
 		},
 		{
-			"criteria": "Curatorial Relevance",
-			"description": [
-				"Artwork adheres to the curatorial thesis and contributes to the IAG curator's theme."
+			"subcategoryTitle": "SHORTS (90-600 SECONDS)",
+			"questions": [
+				{
+					"criteria": "Storyline and Theme",
+					"description": [
+						"Clarity, depth, relevance, originality of the storyline; dialogue, flow, writing/script, entertainment value, significance. Also, evaluate the incorporation and interpretation of the programme theme."
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Direction and Production Design",
+					"description": [
+						"Shot structure, storytelling, look and feel, creativity, coherence, symbolic style, use of props, visual scheme, set dressing, set design, and mood of visual style."
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Editing",
+					"description": [
+						"Thematic relevance, style (does it work with the theme), flow, tricks for intention (jump cuts, inserts), appropriate use of transition grading, colouring, subtitling."
+					],
+					"maxCriteriaPoints": 15
+				},
+				{
+					"criteria": "Sound Design",
+					"description": [
+						"Clarity, audio sync with dialogue or sound effects, choice, and use of sound effects, music, soundtracks, voiceover/background effects, and sound balance."
+					],
+					"maxCriteriaPoints": 10
+				},
+				{
+					"criteria": "Cinematography",
+					"description": [
+						"Lighting, camera work, range of complicated shots (e.g. vertigo shot), camera angles, composition, framing, creativity."
+					],
+					"maxCriteriaPoints": 10
+				},
+				{
+					"criteria": "Performance/Character",
+					"description": [
+						"Acting, mood, realism, character depth, emotional connection with the viewer."
+					],
+					"maxCriteriaPoints": 10
+				},
+				{
+					"criteria": "Visual Effects",
+					"description": [
+						"Effective use of CGI (computer generated imagery), post-production, and green screen work."
+					],
+					"maxCriteriaPoints": 10
+				},
+				{
+					"criteria": "Special Effects/Stunts (anything is done in extreme)",
+					"description": [
+						"Use of fire or explosions, relevance, the reality of stunts and effects."
+					],
+					"maxCriteriaPoints": 5
+				}
 			],
-			"maxCriteriaPoints": 20
+			"maxPoints": 100
 		},
 		{
-			"criteria": "Elements of Art/Composition",
-			"description": [
-				"Effective use of standard elements of art: line, colour, space, form, media, texture."
+			"subcategoryTitle": "SHORTS (5-20 MINUTES)",
+			"questions": [
+				{
+					"criteria": "Storyline and Theme",
+					"description": [
+						"Clarity, depth, relevance, originality of the storyline; dialogue, flow, writing/script, entertainment value, significance. Also, evaluate the incorporation and interpretation of the programme theme."
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Direction and Production Design",
+					"description": [
+						"Shot structure, storytelling, look and feel, creativity, coherence, symbolic style, use of props, visual scheme, set dressing, set design, and mood of visual style."
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Editing",
+					"description": [
+						"Thematic relevance, style (does it work with the theme), flow, tricks for intention (jump cuts, inserts), appropriate use of transition grading, colouring, subtitling."
+					],
+					"maxCriteriaPoints": 15
+				},
+				{
+					"criteria": "Sound Design",
+					"description": [
+						"Clarity, audio sync with dialogue or sound effects, choice, and use of sound effects, music, soundtracks, voiceover/background effects, and sound balance."
+					],
+					"maxCriteriaPoints": 10
+				},
+				{
+					"criteria": "Cinematography",
+					"description": [
+						"Lighting, camera work, range of complicated shots (e.g. vertigo shot), camera angles, composition, framing, creativity."
+					],
+					"maxCriteriaPoints": 10
+				},
+				{
+					"criteria": "Performance/Character",
+					"description": [
+						"Acting, mood, realism, character depth, emotional connection with the viewer."
+					],
+					"maxCriteriaPoints": 10
+				},
+				{
+					"criteria": "Visual Effects",
+					"description": [
+						"Effective use of CGI (computer generated imagery), post-production, and green screen work."
+					],
+					"maxCriteriaPoints": 10
+				},
+				{
+					"criteria": "Special Effects/Stunts (anything is done in extreme)",
+					"description": [
+						"Use of fire or explosions, relevance, the reality of stunts and effects."
+					],
+					"maxCriteriaPoints": 5
+				}
 			],
-			"maxCriteriaPoints": 15
+			"maxPoints": 100
 		},
 		{
-			"criteria": "Technique, Execution, Artistic Talent",
-			"description": [
-				"Craftsmanship: Artist skill in the use of materials and forms, real and abstract techniques."
+			"subcategoryTitle": "IMMERSIVE (AR/VR/MR/XR) EXPERIENCES",
+			"questions": [
+				{
+					"criteria": "Storyline and Theme",
+					"description": [
+						"Clarity, depth, relevance, originality of the storyline; dialogue, flow, writing/script, entertainment value, significance. Also, evaluate the incorporation and interpretation of the programme theme."
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Direction and Production Design",
+					"description": [
+						"Shot structure, storytelling, look and feel, creativity, coherence, symbolic style, use of props, visual scheme, set dressing, set design, and mood of visual style."
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Innovation",
+					"description": [
+						"Pushing the boundaries of the medium. Exciting and fresh use of graphics and/or technology. Creates a spark within the viewer through unique creative or technical feats."
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Interaction",
+					"description": [
+						"Refined, smooth, intuitive, accessible experience for the user with minimal instruction and avoidance of user or technical errors. Users are able to fully focus on the experience quickly without having to be greatly trained - ie: a joy to use even for relative beginners."
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Quality",
+					"description": [
+						"Bug free, performant on minimal specced and supported devices. Minimal time to enter the experience, efficient footprint and none to super minimal delays or lag."
+					],
+					"maxCriteriaPoints": 15
+				},
+				{
+					"criteria": "Sound Design",
+					"description": [
+						"Clarity, audio sync with dialogue or sound effects, choice, and use of sound effects, music, soundtracks, voiceover/background effects, and sound balance."
+					],
+					"maxCriteriaPoints": 5
+				}
 			],
-			"maxCriteriaPoints": 25
-		},
-		{
-			"criteria": "Appearance, Presentation, Final Product",
-			"description": [
-				"Professional Quality/Neatness & Presentation: Overall neatness, tastefulness, and completeness of artwork; appearance, framing, mounting."
-			],
-			"maxCriteriaPoints": 10
+			"maxPoints": 100
 		}
-	],
-	"maxPoints": 80
+	]
 }

@@ -1,51 +1,197 @@
 {
 	"topic": "Performing Arts",
-	"numOfCategories": 7,
+	"numOfCategories": 4,
 	"subCategories": [
-		"Canvas Mediums, Paper Media, Print Media / Graphic Design / Digital",
-		"Artificial Intelligence (AI) Art",
-		"3-Dimensional / Sculpture",
-		"Photography",
-		"Mixed / Assembled Media",
-		"Art & Digital Installation",
-		"Fashion & Textile"
-	],
-	"questions": [
 		{
-			"criteria": "Creativity and Content",
-			"description": [
-				"Uniqueness of concept, creativity, and originality of the depicted theme. Also, evaluate the incorporation and interpretation of the programme theme."
+			"subcategoryTitle": "VOCAL MUSIC / VOICE",
+			"questions": [
+				{
+					"criteria": "Technique",
+					"description": [
+						"Intonation: Level of accuracy in all ranges and registers, pitch adjustments are made instantly",
+						"Mechanics: All notes, rhythms, and intervals are performed accurately",
+						"Language: Diction is consistently appropriate, consonants are clearly enunciated"
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Tone Quality",
+					"description": [
+						"Tone: Open, resonant, full tone in a registers and ranges, (in cases of a group performance: able to harmonise in chordal colour and group blend)",
+						"Breathing/Breath Support: Demonstrates ability to breathe deeply and control air flow consistently",
+						"Vowels: Vowel placement, even in outer ranges and volumes, remains consistent"
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Creativity",
+					"description": [
+						"Interpretation: Performance is delivered fully and deliberately, understanding of text is clear and stylistic choices reflect the meaning behind the text",
+						"Content: Performance adheres to theme, consists of blending and movement between rhythms, experimentation with vocal and musical textures, tessitura (vocal range) is diverse"
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Musicality",
+					"description": [
+						"Style/Elements: Expression is fluid and organic, versus rigid and mechanical",
+						"Phrasing: Phrasing is consistent and sensitive to the style of music being sung",
+						"Dynamics: Dynamic (volume) levels and contrast are obvious and consistent",
+						"Tempo: Rhythms performed are accurate and consistent with tempo"
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Overall Performance",
+					"description": [
+						"Showmanship, stage presence, body language, affective value and emotional impact, engagement with judges and audiences, and lasting thoughts on content, creativity, and technique"
+					],
+					"maxCriteriaPoints": 20
+				}
 			],
-			"maxCriteriaPoints": 10
+			"maxPoints": 100
 		},
 		{
-			"criteria": "Curatorial Relevance",
-			"description": [
-				"Artwork adheres to the curatorial thesis and contributes to the IAG curator's theme."
+			"subcategoryTitle": "Instrumental Music",
+			"questions": [
+				{
+					"criteria": "Technique",
+					"description": [
+						"Intonation: Level of accuracy in all ranges and registers, pitch adjustments are made instantly",
+						"Mechanics: All notes, rhythms, and intervals are performed accurately",
+						"Articulation: Utilised technique (e.g. use of bow or tongue) is consistently appropriate, coherent"
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Tone Quality",
+					"description": [
+						"Tone: Open, resonant, full tone in a registers and ranges, (in cases of a group performance: able to harmonise in chordal colour and group blend)",
+						"Breathing/Breath Support: Demonstrates ability to breathe deeply and control air flow consistently"
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Creativity",
+					"description": [
+						"Performance is delivered fully and deliberately, understanding of melodic/harmonic lines are clear and stylistic choices reflect the meaning behind the composition",
+						"Content: Performance adheres to theme, consists of blending and movement between rhythms, experimentation with vocal and musical textures, tessitura (vocal range) is diverse"
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Musicality",
+					"description": [
+						"Style/Elements: Expression is fluid and organic, versus rigid and mechanical",
+						"Phrasing: Phrasing is consistent and sensitive to the style of music being performed",
+						"Dynamics: Dynamic (volume) levels and contrast are obvious and consistent",
+						"Tempo: Rhythms performed are accurate and consistent with tempo"
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Overall Performance",
+					"description": [
+						"Showmanship, stage presence, body language, affective value and emotional impact, engagement with judges and audiences, and lasting thoughts on content, creativity, and technique"
+					],
+					"maxCriteriaPoints": 20
+				}
 			],
-			"maxCriteriaPoints": 20
+			"maxPoints": 100
 		},
 		{
-			"criteria": "Elements of Art/Composition",
-			"description": [
-				"Effective use of standard elements of art: line, colour, space, form, media, texture."
+			"subcategoryTitle": "Dance",
+			"questions": [
+				{
+					"criteria": "Technique",
+					"description": [
+						"Movement: Great care is given to overall quality of movement, fluidity, control",
+						"Form: Body line and form, posture, alignment, extension, mobility, balance, stamina, are poised and consistent",
+						"Synchronisation: (in the case of a group performance, evaluate harmony and synchronisation)"
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Choreography Quality",
+					"description": [
+						"Complexity: Complexity of performance versus a simple rehash of standard steps, incorporation of risks and challenging variations",
+						"Design: Use of stage, rhythmic density and variety, movement vocabulary and variety, visual imagery"
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Creativity",
+					"description": [
+						"Interpretation: Performance is delivered fully and deliberately, understanding of movement through dance styles and vocabularies, narrative or “story” arc are clear and stylistic choices reflect the meaning behind the music",
+						"Content: Performance adheres to theme, consists of blending and movement between rhythms, experimentation with props and sets, shapes and other imagery that result from choreographic decisions"
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Musicality",
+					"description": [
+						"Style/Elements: Expression is fluid and organic, versus rigid and mechanical, contrast is obvious and consistent",
+						"Body Language: Dancer(s) use face and body to fully express intent of movement. Dynamic (volume) levels and contrast are obvious and consistent",
+						"Tempo: Rhythms performed are accurate and dancer(s) stay consistent with tempo, continuity in any changes in speed, energy, stillness"
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Overall Performance",
+					"description": [
+						"Showmanship, stage presence, body language, affective value and emotional impact, engagement with judges and audiences, and lasting thoughts on content, creativity, and technique"
+					],
+					"maxCriteriaPoints": 20
+				}
 			],
-			"maxCriteriaPoints": 15
+			"maxPoints": 100
 		},
 		{
-			"criteria": "Technique, Execution, Artistic Talent",
-			"description": [
-				"Craftsmanship: Artist skill in the use of materials and forms, real and abstract techniques."
+			"subcategoryTitle": "Creative Arts",
+			"questions": [
+				{
+					"criteria": "Technique",
+					"description": [
+						"Movement: Great care and attention is given to overall quality of movement and the bodily “toolbox” in performance, fluidity, control",
+						"Articulation: Utilised technique of art form is consistently appropriate, coherent, adheres to stylistic priorities",
+						"Synchronisation: (in the case of a group performance, evaluate overall blend and coordination)"
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Quality",
+					"description": [
+						"Complexity: Complexity of performance, incorporation of variations",
+						"Design: Use of stage, rhythmic density and variety (if applicable), movement vocabulary and variety, visual imagery"
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Creativity",
+					"description": [
+						"Interpretation: Performance is delivered fully and deliberately, understanding of movement through different vocabularies from within the idiom and style chosen, narrative or “story” arc is clear and stylistic choices reflect intent",
+						"Content: Performance adheres to theme, consists of blending and movement between rhythms, experimentation with props and sets, shapes, textures, sounds, and other imagery that result from creative decisions"
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Theatricality",
+					"description": [
+						"Style/Elements: Expression is fluid and organic, versus rigid and mechanical, contrast is obvious and consistent",
+						"Body Language: Performer uses face and body to fully express intent of movement. Dynamic (volume) levels and contrast are obvious and consistent",
+						"Tempo: Consistency with tempo, continuity in any changes in speed, energy, stillness"
+					],
+					"maxCriteriaPoints": 20
+				},
+				{
+					"criteria": "Overall Performance",
+					"description": [
+						"Showmanship, stage presence, body language, affective value and emotional impact, engagement with judges and audiences, and lasting thoughts on content, creativity, and technique"
+					],
+					"maxCriteriaPoints": 20
+				}
 			],
-			"maxCriteriaPoints": 25
-		},
-		{
-			"criteria": "Appearance, Presentation, Final Product",
-			"description": [
-				"Professional Quality/Neatness & Presentation: Overall neatness, tastefulness, and completeness of artwork; appearance, framing, mounting."
-			],
-			"maxCriteriaPoints": 10
+			"maxPoints": 100
 		}
-	],
-	"maxPoints": 80
+	]
 }

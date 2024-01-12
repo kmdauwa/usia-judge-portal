@@ -1,5 +1,5 @@
 import { pgTable, pgEnum, serial, text, foreignKey, unique, uuid, integer, smallint, timestamp, real } from "drizzle-orm/pg-core"
-  import { sql } from "drizzle-orm"
+import { sql } from "drizzle-orm"
 
 export const keyStatus = pgEnum("key_status", ['default', 'valid', 'invalid', 'expired'])
 export const keyType = pgEnum("key_type", ['aead-ietf', 'aead-det', 'hmacsha512', 'hmacsha256', 'auth', 'shorthash', 'generichash', 'kdf', 'secretbox', 'secretstream', 'stream_xchacha20'])
@@ -38,7 +38,8 @@ export const scores = pgTable("Scores", {
 	paCreativityScore: smallint("pa_creativity_score"),
 	paMusicalityScore: smallint("pa_musicality_score"),
 	paOverallScore: smallint("pa_overall_score"),
-	createdAt: timestamp("createdAt", { mode: 'string' }).default((now() AT TIME ZONE 'cst'::text)),
+	// ...
+	createdAt: timestamp("createdAt", { mode: 'string' }).defaultNow(),
 },
 (table) => {
 	return {

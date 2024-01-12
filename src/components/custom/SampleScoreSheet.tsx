@@ -7,8 +7,14 @@ import performanceScoreSheet from "@/lib/score-sheets/performing-arts.json";
 interface ScoreSheet {
 	topic: string;
 	numOfCategories: number;
-	subCategories: String[];
-	questions: questionList[]; // Add this line
+	subCategories: subCategoriesList[];
+	maxPoints: number;
+}
+
+interface subCategoriesList {
+	subcategoryTitle: string;
+	questions: questionList[];
+	maxPoints: number;
 }
 
 interface questionList {
@@ -33,7 +39,7 @@ const SampleScoreSheet = ({ category }: { category: string }) => {
 				Scoring Criterias
 			</h3>
 			<div className="flex flex-row flex-wrap p-4 justify-center items-stretch">
-				{data?.questions?.map((question, index) => (
+				{data?.subCategories[0]?.questions?.map((question, index) => (
 					<div
 						className="flex flex-col md:w-2/5 p-8 m-2 bg-slate-200 rounded-lg shadow-sm"
 						key={index}>
@@ -45,7 +51,7 @@ const SampleScoreSheet = ({ category }: { category: string }) => {
 						<div className="flex flex-col justify-center md:flex-row">
 							<div className="text-center">
 								{question.description.map((desc, index) => (
-									<div key={index}>
+									<div key={index} className="py-2">
 										<p>{desc}</p>
 									</div>
 								))}
@@ -63,7 +69,7 @@ const SampleScoreSheet = ({ category }: { category: string }) => {
 				))}
 			</div>
 			<div className="text-md m-4 text-center font-[500] uppercase text-orient">
-				Max Points: 80
+				Max Points: {data.subCategories[0].maxPoints}
 			</div>
 			<br></br>
 		</div>

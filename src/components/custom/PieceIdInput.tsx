@@ -1,6 +1,12 @@
 import React from "react";
 
-const PieceIdInput = ({ category }: { category: string }) => {
+const PieceIdInput = ({
+	category,
+	setIdSubmitted,
+}: {
+	category: string;
+	setIdSubmitted: any;
+}) => {
 	const [error, setError] = React.useState("");
 
 	// Route to the piece judging page if the ID is valid and exists in the database
@@ -17,6 +23,9 @@ const PieceIdInput = ({ category }: { category: string }) => {
 
 		// Check if this judge has already judged this piece
 		// TODO: ADD more database checks here
+
+		// If all checks pass, show the score sheet input form in place of sample sheet
+		setIdSubmitted(ID);
 
 		setError("");
 	};

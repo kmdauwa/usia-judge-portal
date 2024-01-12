@@ -1,7 +1,7 @@
 import React from "react";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import Navbar from "@/components/custom/navbar";
+import Navbar from "@/components/custom/Navbar";
 import {
 	getUserType,
 	getJudgeMajorCategory,

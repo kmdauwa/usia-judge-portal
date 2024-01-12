@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import Logo from "../../../public/gef2024logo.png";
 import Image from "next/image";
@@ -72,8 +72,8 @@ const NavbarUI: React.FC<{
 						{userType != "judge" && (
 							<>
 								<Dropdown.Item>Dashboard</Dropdown.Item>
+								<Dropdown.Item>Scores</Dropdown.Item>
 								<Dropdown.Item>Settings</Dropdown.Item>
-								<Dropdown.Item>Earnings</Dropdown.Item>
 								<Dropdown.Divider />
 							</>
 						)}
@@ -92,7 +92,7 @@ const NavbarUI: React.FC<{
 						href="/home">
 						Home
 					</Navbar.Link>
-					{judgeCategory == 1 && (
+					{(userType == "admin" || judgeCategory == 1) && (
 						<Navbar.Link
 							className="tracking-wide text-[1rem]"
 							active={pathname.includes("/art-gallery")}
@@ -100,7 +100,7 @@ const NavbarUI: React.FC<{
 							Art Gallery
 						</Navbar.Link>
 					)}
-					{judgeCategory == 2 && (
+					{(userType == "admin" || judgeCategory == 2) && (
 						<Navbar.Link
 							className="tracking-wide text-[1rem]"
 							active={pathname.includes("/film-festival")}
@@ -108,7 +108,7 @@ const NavbarUI: React.FC<{
 							Film Festival
 						</Navbar.Link>
 					)}
-					{judgeCategory == 3 && (
+					{(userType == "admin" || judgeCategory == 3) && (
 						<Navbar.Link
 							className="tracking-wide text-[1rem]"
 							active={pathname.includes("/performing-arts")}

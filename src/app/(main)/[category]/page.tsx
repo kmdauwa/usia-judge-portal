@@ -1,13 +1,15 @@
 "use client";
-import React, { use, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import { useRouter } from "next/navigation";
 import ScoreSheetInput from "@/components/custom/ScoreSheetInput";
 import PieceIdInput from "@/components/custom/PieceIdInput";
+import SampleScoreSheet from "@/components/custom/SampleScoreSheet";
 
 const Categories = ["art-gallery", "film-festival", "performing-arts"];
 
 const TopicPage = ({ params }: { params: { category: string } }) => {
 	const router = useRouter();
+	const [idSubmitted, setIdSubmitted] = useState();
 
 	// Add a global route guard
 	useEffect(() => {
@@ -20,12 +22,30 @@ const TopicPage = ({ params }: { params: { category: string } }) => {
 
 	if (!Categories.includes(params.category)) return;
 
+	useEffect(() => {
+		if (idSubmitted) {
+			// TODO: Pull info about this piece from the database & pass it to the score sheet input
+		}
+	}, [idSubmitted]);
+
 	return (
 		<div>
-			<PieceIdInput category={params.category} />
-			<br></br>
-			<br></br>
-			<ScoreSheetInput category={params.category} />
+			{!idSubmitted ? (
+				<>
+					<PieceIdInput
+						category={params.category}
+						setIdSubmitted={setIdSubmitted}
+					/>
+					<br></br>
+					<br></br>
+					<SampleScoreSheet category={params.category} />
+				</>
+			) : (
+				<ScoreSheetInput
+					setIdSubmitted={setIdSubmitted}
+					category={params.category}
+				/>
+			)}
 		</div>
 	);
 };
